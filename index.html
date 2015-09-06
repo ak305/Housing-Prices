@@ -29,9 +29,19 @@
 <body>
     <div id="wrapper">
         <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand"><a href="#">Home</a></li>
-            </ul>
+            <h2>House Life</h2>
+            <form class=""
+                <input type="text" class="form-control" placeholder="Enter Location ">
+                <a href="#" class="btn btn-success" id="menu-toggle">Toggle Menu</a>
+            <!--<label class="checkbox-inline">-->
+                <!--<input type="checkbox" id="inlineCheckbox1" value="option1"> 1-->
+            <!--</label>-->
+            <!--<label class="checkbox-inline">-->
+                <!--<input type="checkbox" id="inlineCheckbox2" value="option2"> 2-->
+            <!--</label>-->
+            <!--<label class="checkbox-inline">-->
+                <!--<input type="checkbox" id="inlineCheckbox3" value="option3"> 3-->
+            <!--</label>-->
         </div>
         <!--<div id="page-content-wrapper">-->
             <!--<div class="page-content">-->
@@ -101,13 +111,14 @@
 
     </script>
     <script async defer
-            src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap"></script>
-    <!--<script>-->
-        <!--$("#menu-toggle").click(function(event){-->
-            <!--event.preventDefault();-->
-            <!--$("#wrapper").toggleClass("toggled");-->
-        <!--});-->
-    <!--</script>-->
+            src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap">
+    </script>
+    <script>
+        $("#menu-toggle").click(function(event){
+            event.preventDefault();
+            $("#wrapper").toggleClass("menuExpanded");
+        });
+    </script>
 
 </body>
 </html>
