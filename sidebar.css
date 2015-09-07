@@ -7,8 +7,8 @@
 #sidebar-wrapper {
     margin-left: -250px;
     left: 250px;
-    width: 30%;
-    background: floralwhite;
+    width: 25%;
+    background: white;
     position: fixed;
     height: 100%;
     overflow-y: auto;

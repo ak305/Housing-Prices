@@ -15,7 +15,7 @@
             padding: 0;
         }
         #map {
-            width:70%;
+            width:75%;
             height:100%;
             position:absolute;
             right:0px;
@@ -29,8 +29,8 @@
 <body>
     <div id="wrapper">
         <div id="sidebar-wrapper">
-            <h2>House Life</h2>
-            <form class=""
+            <h1>TBD</h1>
+            <!--<form class=""-->
                 <input type="text" class="form-control" placeholder="Enter Location ">
                 <a href="#" class="btn btn-success" id="menu-toggle">Toggle Menu</a>
             <!--<label class="checkbox-inline">-->
@@ -54,8 +54,10 @@
                 <!--</div>-->
             <!--</div>-->
         <!--</div>-->
+
+        <div id="map"></div>
+
     </div>
-    <div id="map"></div>
 
 
     <script>
@@ -70,7 +72,11 @@
             // Load GeoJSON.
             map.data.loadGeoJson('boundaries_all.json');
 
+            var contentString = '<h2>' + 'Test' + '</h2>';
 
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
             // [START snippet]
             // Color each letter gray. Change the color when the isColorful property
             // is set to true.
@@ -89,6 +95,9 @@
             // When the user clicks, set 'isColorful', changing the color of the letters.
             map.data.addListener('click', function(event) {
                 event.feature.setProperty('isColorful', true);
+//                placeMarker(event.latLng);
+                infowindow.setPosition(event.latLng);
+                infowindow.open(map);
             });
 
             // When the user hovers, tempt them to click by outlining the letters.
@@ -106,6 +115,14 @@
             map.data.addListener('mouseout', function(event) {
                 map.data.revertStyle();
             });
+
+            function placeMarker(location) {
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: map
+                });
+
+            }
             // [END snippet]
         }
 
