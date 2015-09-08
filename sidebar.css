@@ -1,5 +1,26 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    width:75%;
+    height:100%;
+    position:absolute;
+    right:0px;
+    /*top:50px;*/
+    bottom:0;
+    overflow:hidden;
+}
+
+#search-bar {
+    width: 250px;
+    z-index: 1000;
+    position: fixed;
+}
 #wrapper {
-    padding-left: 250px;
+    padding-left: 25%;
     transition: all 0.4s ease 0s;
 }
 

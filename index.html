@@ -9,20 +9,7 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="sidebar.css">
     <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-        #map {
-            width:75%;
-            height:100%;
-            position:absolute;
-            right:0px;
-            /*top:50px;*/
-            bottom:0;
-            overflow:hidden;
-        }
+
     </style>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
 </head>
@@ -31,8 +18,7 @@
         <div id="sidebar-wrapper">
             <h1>TBD</h1>
             <!--<form class=""-->
-                <input type="text" class="form-control" placeholder="Enter Location ">
-                <a href="#" class="btn btn-success" id="menu-toggle">Toggle Menu</a>
+                <a href="#" class="btn btn-danger" id="menu-toggle">Toggle Menu</a>
             <!--<label class="checkbox-inline">-->
                 <!--<input type="checkbox" id="inlineCheckbox1" value="option1"> 1-->
             <!--</label>-->
@@ -49,6 +35,8 @@
                     <!--<div class="row">-->
                         <!--<div class="col-md-12">-->
                             <!--&lt;!&ndash; content of page &ndash;&gt;-->
+                            <!--<input type="text" class="form-control" id="search-bar" placeholder="Enter Location ">-->
+
                         <!--</div>-->
                     <!--</div>-->
                 <!--</div>-->
@@ -85,6 +73,12 @@
                 if (!feature.getProperty('isColorful')) {
                     color = feature.getProperty('color');
                 }
+                if (color == 'gray') {
+                    var suburb_name = feature.getProperty('name');
+                    infowindow.setContent(suburb_name);
+                    infowindow.open(map);
+                }
+
                 return /** @type {google.maps.Data.StyleOptions} */({
                     fillColor: color,
                     strokeColor: color,
@@ -95,9 +89,7 @@
             // When the user clicks, set 'isColorful', changing the color of the letters.
             map.data.addListener('click', function(event) {
                 event.feature.setProperty('isColorful', true);
-//                placeMarker(event.latLng);
                 infowindow.setPosition(event.latLng);
-                infowindow.open(map);
             });
 
             // When the user hovers, tempt them to click by outlining the letters.
