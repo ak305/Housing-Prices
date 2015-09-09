@@ -16,7 +16,7 @@
 <body>
     <div id="wrapper">
         <div id="sidebar-wrapper">
-            <h1>TBD</h1>
+            <h2 id="suburb_id">Text</h2>
             <!--<form class=""-->
                 <a href="#" class="btn btn-danger" id="menu-toggle">Toggle Menu</a>
             <!--<label class="checkbox-inline">-->
@@ -75,8 +75,8 @@
                 }
                 if (color == 'gray') {
                     var suburb_name = feature.getProperty('name');
-                    infowindow.setContent(suburb_name);
-                    infowindow.open(map);
+                    var suburb = document.getElementById('suburb_id');
+                    suburb.innerHTML = suburb_name;
                 }
 
                 return /** @type {google.maps.Data.StyleOptions} */({
@@ -90,6 +90,10 @@
             map.data.addListener('click', function(event) {
                 event.feature.setProperty('isColorful', true);
                 infowindow.setPosition(event.latLng);
+//                var content = event.featureData.infoWindowHtml;
+//                infowindow.setContent(content);
+//                infowindow.open(map);
+
             });
 
             // When the user hovers, tempt them to click by outlining the letters.
