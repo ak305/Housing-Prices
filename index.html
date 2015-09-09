@@ -73,11 +73,7 @@
                 if (!feature.getProperty('isColorful')) {
                     color = feature.getProperty('color');
                 }
-                if (color == 'gray') {
-                    var suburb_name = feature.getProperty('name');
-                    var suburb = document.getElementById('suburb_id');
-                    suburb.innerHTML = suburb_name;
-                }
+
 
                 return /** @type {google.maps.Data.StyleOptions} */({
                     fillColor: color,
@@ -86,13 +82,21 @@
                 });
             });
 
+            var lastClickedLayer;
             // When the user clicks, set 'isColorful', changing the color of the letters.
             map.data.addListener('click', function(event) {
+                if (lastClickedLayer) {
+                    lastClickedLayer.feature.setProperty('isColorful', false);
+                }
+                lastClickedLayer = event;
                 event.feature.setProperty('isColorful', true);
                 infowindow.setPosition(event.latLng);
 //                var content = event.featureData.infoWindowHtml;
 //                infowindow.setContent(content);
 //                infowindow.open(map);
+                var suburb_name = event.feature.getProperty('name');
+                var suburb = document.getElementById('suburb_id');
+                suburb.innerHTML = suburb_name;
 
             });
 
