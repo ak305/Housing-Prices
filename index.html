@@ -20,9 +20,16 @@
     <div id="wrapper">
         <div id="sidebar-wrapper">
             <h2 id="suburb_id"></h2>
-            <a href="#" class="btn btn-danger" id="sidebar-toggle">Toggle Menu</a>
+            <input type="checkbox" name="suburb" id ="isChecked"> Compare <br>
 
         </div>
+        <div id="sidebar-wrapper2">
+            <h2 id="suburb_id2">adsd</h2>
+        </div>
+        <div>
+            <a href="#" id="sidebar-toggle"><span class="glyphicon glyphicon-menu-right trapezoid"></span></a>
+        </div>
+
         <!--<div id="page-content-wrapper">-->
             <!--<div class="page-content">-->
                 <!--<div class="container-fluid">-->
@@ -45,8 +52,13 @@
     <script>
         $("#sidebar-toggle").click(function(event){
             event.preventDefault();
+            $(this).find('span').toggleClass('glyphicon-menu-right').toggleClass('glyphicon-menu-left');
             $("#wrapper").toggleClass("sidebarExpanded");
         });
+
+//        $('input:checkbox[name=suburb]').click(function(event){
+//            $("#wrapper").toggleClass("compareChecked");
+//        });
     </script>
 
 </body>

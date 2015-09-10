@@ -6,7 +6,7 @@ function initMap() {
     });
 
     // Load GeoJSON.
-    map.data.loadGeoJson('boundaries_all.json');
+    map.data.loadGeoJson('https://bitbucket.org/williamg2103/json-test/raw/c7e2a3d0618b83ca1f8a4d7c92ed4176a156fe4f/boundaries_all.json');
 
     var infowindow = new google.maps.InfoWindow();
     // [START snippet]
@@ -40,10 +40,15 @@ function initMap() {
         //if (!$("#wrapper").find('.showSidebar').val()) {
         //    $("#wrapper").toggleClass("showSidebar");
         //}
+        var sidebar = document.getElementById('sidebar-wrapper');
+
         // Gets the
         var suburbName = event.feature.getProperty('name');
         // Gets the id of the html
         var suburb = document.getElementById('suburb_id');
+        if($('#isChecked').is(':checked')) {
+            suburb = document.getElementById('suburb_id2');
+        }
         var suburbName = capitaliseFirstLetter(suburbName);
         suburb.innerHTML = suburbName;
 
