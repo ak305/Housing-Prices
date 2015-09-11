@@ -37,18 +37,19 @@ function initMap() {
 
         lastClickedLayer = event;
         event.feature.setProperty('isColorful', true);
-        //if (!$("#wrapper").find('.showSidebar').val()) {
-        //    $("#wrapper").toggleClass("showSidebar");
-        //}
+        if (!$("#wrapper").hasClass('showSidebar')) {
+            $("#wrapper").toggleClass("showSidebar");
+        }
         var sidebar = document.getElementById('sidebar-wrapper');
 
         // Gets the
         var suburbName = event.feature.getProperty('name');
         // Gets the id of the html
         var suburb = document.getElementById('suburb_id');
-        if($('#isChecked').is(':checked')) {
-            suburb = document.getElementById('suburb_id2');
-        }
+        //if($('#isChecked').is(':checked') == true) {
+        //    $("#wrapper").toggleClass("compareChecked");
+        //    suburb = document.getElementById('suburb_id2');
+        //}
         var suburbName = capitaliseFirstLetter(suburbName);
         suburb.innerHTML = suburbName;
 
