@@ -72,6 +72,8 @@ function initMap() {
     });
 
     // Capitalise all letters in a string
+
+    // TODO fix brighton le sands
     function capitaliseFirstLetter(string) {
         return string.replace(/\w\S*/g, function(txt) {
             return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
