@@ -3,6 +3,46 @@ html, body {
     margin: 0;
     padding: 0;
 }
+/*#sidebar-wrapper {*/
+
+    /*animation: fadein 3s;*/
+    /*-moz-animation: fadein 3s; /!* Firefox *!/*/
+    /*-webkit-animation: fadein 3s; /!* Safari and Chrome *!/*/
+    /*-o-animation: fadein 3s; /!* Opera *!/*/
+/*}*/
+
+/*@keyframes fadein {*/
+    /*from {*/
+        /*opacity:0;*/
+    /*}*/
+    /*to {*/
+        /*opacity:1;*/
+    /*}*/
+/*}*/
+/*@-moz-keyframes fadein { /!* Firefox *!/*/
+    /*from {*/
+        /*opacity:0;*/
+    /*}*/
+    /*to {*/
+        /*opacity:1;*/
+    /*}*/
+/*}*/
+/*@-webkit-keyframes fadein { /!* Safari and Chrome *!/*/
+    /*from {*/
+        /*opacity:0;*/
+    /*}*/
+    /*to {*/
+        /*opacity:1;*/
+    /*}*/
+/*}*/
+/*@-o-keyframes fadein { /!* Opera *!/*/
+    /*from {*/
+        /*opacity:0;*/
+    /*}*/
+    /*to {*/
+        /*opacity: 1;*/
+    /*}*/
+/*}*/
 
 #map {
     width: 100%;
@@ -26,13 +66,21 @@ html, body {
     transition: all 0.5s ease;
 }
 
-#sidebar-toggle {
-    position: fixed;
+#page-content-open {
+    position: absolute;
     z-index: 1000;
     left: 20%;
     top: 50%;
-    width: 20%;
+    
+    /*width: 0%;*/
 
+}
+
+#close-sidebar {
+    position: absolute;
+    z-index: 1000;
+    top : 2%;
+    right : 5%;
 }
 
 .trapezoid {
@@ -45,10 +93,12 @@ html, body {
 }
 
 .white{
-    color: white;
+    color: navy;
 }
 
-
+.size {
+    font-size: 1.5em;
+}
 
 /* Sidebar */
 #sidebar-wrapper {
@@ -91,26 +141,43 @@ html, body {
 
 /* Page Content */
 #page-content-wrapper {
-    width: 100%;
+    left: 20%;
+    width: 0%;
+    background: mediumpurple;
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 1000;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+
 }
 
 
-#wrapper.sidebarExpanded {
-    /*padding-left: 250px;*/
-}
-#wrapper.showSidebar.sidebarExpanded #sidebar-wrapper {
+/*#wrapper.sidebarExpanded {*/
+    /*/!*padding-left: 250px;*!/*/
+/*}*/
+#wrapper.showSidebar.sidebarExpanded #page-content-wrapper {
     width: 100%;
 }
+
+#wrapper.showSidebar.sidebarExpanded #page-content-open {
+    right: 0%;
+    left: auto;
+}
+
 
 #wrapper.showSidebar #sidebar-wrapper {
     width: 20%;
     padding: 20px;
 }
 
-#wrapper.showSidebar #sidebar-toggle {
-    width: 20%;
-    /*padding: 20px;*/
-}
+/*#wrapper.showSidebar #sidebar-toggle {*/
+    /*width: 20%;*/
+    /*/!*padding: 20px;*!/*/
+/*}*/
 
 #wrapper.showSidebar #map {
     width: 80%;
@@ -121,31 +188,52 @@ html, body {
     padding: 20px;
 }
 
-.button {
+.glyphicon-menu-right.button {
+    /*transition-delay: 0.5s;*/
     visibility: hidden;
 }
 
-#wrapper.showSidebar .button{
+#wrapper.showSidebar .glyphicon-menu-right.button{
+    transition-delay: 1.0s;
     visibility: visible;
 }
-.sidebar-nav {
-    position: absolute;
-    top: 0;
+
+#wrapper.showClose .button {
+    visibility: visible;
+}
+
+
+#wrapper.closed #sidebar-wrapper{
+    width: 0%;
+    padding: 0px;
+}
+
+#wrapper.closed #map {
     width: 100%;
-    list-style: none;
-    margin: 0;
-    padding: 0;
 }
 
-.sidebar-nav li {
-    text-indent: 20px;
-    line-height: 40px;
+#wrapper.closed .button {
+    visibility: hidden;
 }
 
-.sidebar-nav li a {
-    display: block;
-    text-decoration: none;
-}
+/*.sidebar-nav {*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*width: 100%;*/
+    /*list-style: none;*/
+    /*margin: 0;*/
+    /*padding: 0;*/
+/*}*/
+
+/*.sidebar-nav li {*/
+    /*text-indent: 20px;*/
+    /*line-height: 40px;*/
+/*}*/
+
+/*.sidebar-nav li a {*/
+    /*display: block;*/
+    /*text-decoration: none;*/
+/*}*/
 
 .sidebar-nav li a:hover {
     background: #16A085;

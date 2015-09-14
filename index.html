@@ -19,45 +19,55 @@
 <body>
     <div id="wrapper">
         <div id="sidebar-wrapper">
+            <a href="#" id="close-sidebar"><span class="glyphicon glyphicon-remove white size"></span></a>
             <h2 id="suburb_id"></h2>
             <input type="checkbox" name="suburb" id ="isChecked"> Compare <br>
-
         </div>
-        <!--<div id="sidebar-wrapper2">-->
-            <!--<h2 id="suburb_id2">adsd</h2>-->
-        <!--</div>-->
-        <div>
-            <a href="#" id="sidebar-toggle"><span class="glyphicon glyphicon-menu-right button"></span></a>
+        <div id="sidebar-wrapper2">
+            <h2 id="suburb_id2"></h2>
         </div>
 
-        <!--<div id="page-content-wrapper">-->
-            <!--<div class="page-content">-->
-                <!--<div class="container-fluid">-->
-                    <!--<div class="row">-->
-                        <!--<div class="col-md-12">-->
-                            <!--&lt;!&ndash; content of page &ndash;&gt;-->
+        <div id="page-content-wrapper">
+            <div class="page-content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- content of page -->
                             <!--<input type="text" class="form-control" id="search-bar" placeholder="Enter Location ">-->
 
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div id="map"></div>
+
+        <div>
+            <a href="#" id="page-content-open"><span class="glyphicon glyphicon-menu-right button white size"></span></a>
+        </div>
+
 
     </div>
 
 
     <script>
-        $("#sidebar-toggle").click(function(event){
+        $("#page-content-open").click(function(event){
             event.preventDefault();
             $(this).find('span').toggleClass('glyphicon-menu-right').toggleClass('glyphicon-menu-left');
             $("#wrapper").toggleClass("sidebarExpanded");
         });
 
-//        $('input:checkbox[name=suburb]').click(function(event){
-//            $("#wrapper").toggleClass("compareChecked");
+
+        $('input:checkbox[name=suburb]').click(function(event){
+            $("#wrapper").toggleClass("compareChecked");
+        });
+
+//        $("#close-sidebar").click(function(event){
+//            event.preventDefault();
+//            $("#wrapper").toggleClass("closed");
+////            $("#wrapper").toggleClass("sidebarExpanded");
+//
 //        });
     </script>
 

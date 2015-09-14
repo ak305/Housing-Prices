@@ -27,9 +27,12 @@ function initMap() {
 
     // Keep track of the previously clicked layer
     var lastClickedLayer;
+    var compareLayer = null;
+    var isChecked = false;
     // When the user clicks, set 'isColorful', changing the color of the letters.
     map.data.addListener('click', function(event) {
         // Checks if the previous layer has been clicked
+
         if (lastClickedLayer) {
             // Then reverts the colour back the original state
             lastClickedLayer.feature.setProperty('isColorful', false);
@@ -39,6 +42,8 @@ function initMap() {
         event.feature.setProperty('isColorful', true);
         if (!$("#wrapper").hasClass('showSidebar')) {
             $("#wrapper").toggleClass("showSidebar");
+            $("#wrapper").toggleClass("showClose");
+
         }
         var sidebar = document.getElementById('sidebar-wrapper');
 
@@ -46,10 +51,14 @@ function initMap() {
         var suburbName = event.feature.getProperty('name');
         // Gets the id of the html
         var suburb = document.getElementById('suburb_id');
-        //if($('#isChecked').is(':checked') == true) {
-        //    $("#wrapper").toggleClass("compareChecked");
-        //    suburb = document.getElementById('suburb_id2');
-        //}
+        if($("#wrapper").hasClass('compareChecked') && compareLayer != null) {
+            //$("#wrapper").toggleClass("compareChecked");
+            isChecked = true;
+            suburb = document.getElementById('suburb_id2');
+        }
+        if (!isChecked) {
+            compareLayer = event;
+        }
         var suburbName = capitaliseFirstLetter(suburbName);
         suburb.innerHTML = suburbName;
 
