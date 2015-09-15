@@ -17,48 +17,50 @@
 
 </head>
 <body>
-    <div id="wrapper">
-        <div id="sidebar-wrapper">
+    <div id="wrapper"><!-- start wrapper -->
+        <div id="sidebar-wrapper"> <!-- start sidebar-wrapper -->
             <a href="#" id="close-sidebar"><span class="glyphicon glyphicon-remove white size"></span></a>
             <h2 id="suburb_id"></h2>
             <input type="checkbox" name="suburb" id ="isChecked"> Compare <br>
-        </div>
+        </div> <!-- end side-wrapper -->
         <div id="sidebar-wrapper2">
             <h2 id="suburb_id2"></h2>
         </div>
 
-        <div id="page-content-wrapper">
-            <div class="page-content">
-                <div class="container-fluid">
-                    <div class="row">
+        <div id="page-content-wrapper"> <!-- start page-content-wrapper -->
+            <div class="page-content"> <!-- start page-content -->
+                <div class="container-fluid"> <!-- start container-fluid -->
+                    <div class="row"> <!-- start row -->
                         <div class="col-md-12">
                             <!-- content of page -->
-                            <!--<input type="text" class="form-control" id="search-bar" placeholder="Enter Location ">-->
-
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                    </div> <!-- end row -->
+                </div> <!-- end container-fluid -->
+            </div> <!-- start page-content -->
+        </div> <!-- end page-content-wrapper -->
 
         <div id="map"></div>
 
-        <div>
+        <div> <!-- start page-content-open -->
             <a href="#" id="page-content-open"><span class="glyphicon glyphicon-menu-right button white size"></span></a>
-        </div>
+        </div> <!-- end page-content-open -->
 
 
-    </div>
+    </div> <!-- end wrapper-->
 
 
     <script>
+        // When the user clicks on the page-content-open button it will toggle the sidebarExpanded class
         $("#page-content-open").click(function(event){
+            // Prevents the default action linked to this event
+            // e.g. href="#" is not activated on click
             event.preventDefault();
+            // Switches the glyphicon from > to <
             $(this).find('span').toggleClass('glyphicon-menu-right').toggleClass('glyphicon-menu-left');
             $("#wrapper").toggleClass("sidebarExpanded");
         });
 
-
+        // When the user clicks on the checkbox the class compareChecked will toggle on
         $('input:checkbox[name=suburb]').click(function(event){
             $("#wrapper").toggleClass("compareChecked");
         });

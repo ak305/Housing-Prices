@@ -31,8 +31,8 @@ function initMap() {
     var isChecked = false;
     // When the user clicks, set 'isColorful', changing the color of the letters.
     map.data.addListener('click', function(event) {
-        // Checks if the previous layer has been clicked
 
+        // Checks if the previous layer has been clicked
         if (lastClickedLayer) {
             // Then reverts the colour back the original state
             lastClickedLayer.feature.setProperty('isColorful', false);
@@ -40,26 +40,38 @@ function initMap() {
 
         lastClickedLayer = event;
         event.feature.setProperty('isColorful', true);
+
+        // Checks the state of the class showSidebar
+        // If the it is not toggled, then it will be toggled as the map layer has been clicked
         if (!$("#wrapper").hasClass('showSidebar')) {
             $("#wrapper").toggleClass("showSidebar");
             $("#wrapper").toggleClass("showClose");
-
         }
+
+        // Gets the id of the html element
         var sidebar = document.getElementById('sidebar-wrapper');
 
-        // Gets the
+        // Gets the name of the event layer clicked
         var suburbName = event.feature.getProperty('name');
-        // Gets the id of the html
+
+        // Gets the id of the html element
         var suburb = document.getElementById('suburb_id');
+
+        // Checks if the compareChecked has been toggled i.e. the checkbox has been ticked
         if($("#wrapper").hasClass('compareChecked') && compareLayer != null) {
-            //$("#wrapper").toggleClass("compareChecked");
             isChecked = true;
+            // Switches the text to the element by the name of suburb_id2
             suburb = document.getElementById('suburb_id2');
         }
+
         if (!isChecked) {
             compareLayer = event;
         }
+
+        // Calls the capitalise string function
         var suburbName = capitaliseFirstLetter(suburbName);
+
+        // Applies the changes to the string to the html contained in suburb_id
         suburb.innerHTML = suburbName;
 
     });

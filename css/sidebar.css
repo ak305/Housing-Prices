@@ -118,6 +118,7 @@ html, body {
 
 }
 
+/* Sidebar 2 */
 #sidebar-wrapper2 {
     /*margin-left: -250px;*/
     left: 20%;
@@ -155,20 +156,24 @@ html, body {
 
 }
 
-
-/*#wrapper.sidebarExpanded {*/
-    /*/!*padding-left: 250px;*!/*/
-/*}*/
+/* IF the sidebar is showing THEN
+ * expanded the page-content-wrapper IF sidebarExpanded is toggled on
+ */
 #wrapper.showSidebar.sidebarExpanded #page-content-wrapper {
     width: 100%;
 }
 
+/* IF the sidebar is showing THEN
+ * move the page-content-open button to follow as the page-content-wrapper expands
+ */
 #wrapper.showSidebar.sidebarExpanded #page-content-open {
     right: 0%;
     left: auto;
 }
 
-
+/* IF the showSidebar is toggled on THEN
+ *  set the width to 20 % AND add 20 px padding
+ */
 #wrapper.showSidebar #sidebar-wrapper {
     width: 20%;
     padding: 20px;
@@ -179,20 +184,31 @@ html, body {
     /*/!*padding: 20px;*!/*/
 /*}*/
 
+/* IF the sidebar is showing THEN
+ * Set the map width to be 80%
+ */
 #wrapper.showSidebar #map {
     width: 80%;
 }
 
+/* IF the compareChecked is toggled on THEN
+ * Open sidebar-wrapper2 AND
+ * Set the width to 20% with 20px padding
+ */
 #wrapper.compareChecked #sidebar-wrapper2 {
     width: 20%;
     padding: 20px;
 }
 
+/* Modifies the properties of the button with hidden visibility on load */
 .glyphicon-menu-right.button {
     /*transition-delay: 0.5s;*/
     visibility: hidden;
 }
 
+/* IF the sidebar is showing THEN
+ * the button will become visible
+ */
 #wrapper.showSidebar .glyphicon-menu-right.button{
     transition-delay: 1.0s;
     visibility: visible;
@@ -235,9 +251,9 @@ html, body {
     /*text-decoration: none;*/
 /*}*/
 
-.sidebar-nav li a:hover {
-    background: #16A085;
-}
+/*.sidebar-nav li a:hover {*/
+    /*background: #16A085;*/
+/*}*/
 
 /*@media (max-width:767px) {*/
 
