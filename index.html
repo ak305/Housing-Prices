@@ -20,12 +20,48 @@
     <div id="wrapper"><!-- start wrapper -->
         <div id="sidebar-wrapper"> <!-- start sidebar-wrapper -->
             <a href="#" id="close-sidebar"><span class="glyphicon glyphicon-remove white size"></span></a>
-            <h2 id="suburb_id"></h2>
-            <input type="checkbox" name="suburb" id ="isChecked"> Compare <br>
+            <div class="container-fluid">
+                <div class="row divide">
+                    <div id="col1" class="col-md-6">
+                        <h2 id="suburb_id"></h2>
+
+                        <p>
+                            Median House Price: _____
+                            <hr>
+                            Average Income: _____
+                            <hr>
+                            Average Age: ______
+                            <hr>
+                            ...
+                        </p>
+
+                    </div>
+                    <div class = "divider"></div>
+                    <div id = "col2" class="col-md-6 col-style">
+                        <h2 id="suburb_id2"></h2>
+
+                        <p>
+                            Median House Price: _____
+                            <hr>
+                            Average Income: _____
+                            <hr>
+                            Average Age: ______
+                            <hr>
+                            ...
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+            <div id = "checkbox">
+                <input type="checkbox" name="suburb" id ="compare-checkbox" > Compare <br>
+            </div>
+
         </div> <!-- end side-wrapper -->
-        <div id="sidebar-wrapper2">
-            <h2 id="suburb_id2"></h2>
-        </div>
+        <!--<div id="sidebar-wrapper2">-->
+            <!--<h2 id="suburb_id2"></h2>-->
+        <!--</div>-->
 
         <div id="page-content-wrapper"> <!-- start page-content-wrapper -->
             <div class="page-content"> <!-- start page-content -->
@@ -58,6 +94,10 @@
             // Switches the glyphicon from > to <
             $(this).find('span').toggleClass('glyphicon-menu-right').toggleClass('glyphicon-menu-left');
             $("#wrapper").toggleClass("sidebarExpanded");
+//            $('#col1').closest('[class^="col-md"]').toggleClass('col-md-12 col-md-6').siblings('[class^="col-md"]')
+//                    .removeClass('col-md-12')
+//                    .addClass('col-md-6');
+//            $('#col2').toggleClass('col-md-12 col-md-6');
         });
 
         // When the user clicks on the checkbox the class compareChecked will toggle on
@@ -71,6 +111,8 @@
 ////            $("#wrapper").toggleClass("sidebarExpanded");
 //
 //        });
+
+
     </script>
 
 </body>
