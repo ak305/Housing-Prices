@@ -14,6 +14,7 @@
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script language="javascript" type="text/javascript" src="js/map.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap"></script>
+	
 
 </head>
 <body>
@@ -76,6 +77,8 @@
         </div> <!-- end page-content-wrapper -->
 
         <div id="map"></div>
+		
+		<div id="heatmap-toggle"></div>
 
         <div> <!-- start page-content-open -->
             <a href="#" id="page-content-open"><span class="glyphicon glyphicon-menu-right button white size"></span></a>
@@ -83,13 +86,20 @@
 
 
     </div> <!-- end wrapper-->
+	
 
 
     <script>
+		// when user clicks on the toggle heatmap button
+		$("#heatmap-toggle").click(function(event){
+			changeHeatmap();
+		});
+	
         // When the user clicks on the page-content-open button it will toggle the sidebarExpanded class
         $("#page-content-open").click(function(event){
             // Prevents the default action linked to this event
             // e.g. href="#" is not activated on click
+			changeHeatmap();	
             event.preventDefault();
             // Switches the glyphicon from > to <
             $(this).find('span').toggleClass('glyphicon-menu-right').toggleClass('glyphicon-menu-left');
@@ -103,6 +113,7 @@
         // When the user clicks on the checkbox the class compareChecked will toggle on
         $('input:checkbox[name=suburb]').click(function(event){
             $("#wrapper").toggleClass("compareChecked");
+			
         });
 
 //        $("#close-sidebar").click(function(event){

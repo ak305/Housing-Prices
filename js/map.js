@@ -1,4 +1,38 @@
+var count = 1;
 var map;
+var setHeatmap1Fn = function(feature){
+	return{
+        fillColor: feature.getProperty('color1'),
+        strokeColor: feature.getProperty('color1'),
+        strokeWeight: 1
+	};
+};
+var setHeatmap2Fn = function(feature){
+	return{
+        fillColor: feature.getProperty('color2'),
+        strokeColor: feature.getProperty('color2'),
+        strokeWeight: 1
+	};
+};
+var setHeatmap3Fn = function(feature){
+	return{
+        fillColor: feature.getProperty('color3'),
+        strokeColor: feature.getProperty('color3'),
+        strokeWeight: 1
+	};
+};
+function changeHeatmap(){
+	// map.data.setStyle(setHeatmap2Fn);
+	if(count % 3 == 0){
+		map.data.setStyle(setHeatmap1Fn);
+	}else if(count % 3 == 1){
+		map.data.setStyle(setHeatmap2Fn);
+	}else{
+		map.data.setStyle(setHeatmap3Fn);
+	}
+	count++;
+}
+
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 10,
@@ -6,18 +40,21 @@ function initMap() {
     });
 
     // Load GeoJSON.
-    map.data.loadGeoJson('https://bitbucket.org/williamg2103/json-test/raw/c7e2a3d0618b83ca1f8a4d7c92ed4176a156fe4f/boundaries_all.json');
+    map.data.loadGeoJson('https://bitbucket.org/williamg2103/json-test/raw/07a9b086bece031e6471ed1924640ff0af7f51e1/suburb_multicolour_test.json');
+    // map.data.loadGeoJson('https://bitbucket.org/williamg2103/json-test/raw/c7e2a3d0618b83ca1f8a4d7c92ed4176a156fe4f/boundaries_all.json');
 
     var infowindow = new google.maps.InfoWindow();
     // [START snippet]
     // Color each letter gray. Change the color when the isColorful property
     // is set to true.
+	
+	
     map.data.setStyle(function(feature) {
-        var color = 'gray';
+		var color = 'gray';
         if (!feature.getProperty('isColorful')) {
-            color = feature.getProperty('color');
+            color = feature.getProperty('color1');
         }
-
+		
         return /** @type {google.maps.Data.StyleOptions} */({
             fillColor: color,
             strokeColor: color,
@@ -73,7 +110,7 @@ function initMap() {
 
         // Applies the changes to the string to the html contained in suburb_id
         suburb.innerHTML = suburbName;
-
+		// changeHeatmap();
     });
 
     // When the user hovers, tempt them to click by outlining the letters.

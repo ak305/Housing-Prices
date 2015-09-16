@@ -211,9 +211,9 @@ html, body {
 
 }
 
-#wrapper.compareChecked #page-content-wrapper {
-    width: 20%;
-}
+/*#wrapper.compareChecked #page-content-wrapper {*/
+    /*width: 20%;*/
+/*}*/
 /* Modifies the properties of the button with hidden visibility on load */
 .glyphicon-menu-right.button {
     /*transition-delay: 0.5s;*/
@@ -246,6 +246,14 @@ html, body {
     visibility: hidden;
 }
 
+#heatmap-toggle {
+    right: 8%;
+    width: 7%;
+    bottom: 8%;
+    background: mediumpurple;
+    position: fixed;
+    height: 10%;
+}
 /*.sidebar-nav {*/
     /*position: absolute;*/
     /*top: 0;*/
