@@ -120,6 +120,11 @@ html, body {
 
 }
 
+
+#page-content-wrapper .col-md-12 {
+    height: 0%;
+
+}
 /*.row.divide [class*='col-']:not(:last-child):after {*/
     /*background: #e0e0e0;*/
     /*width: 1px;*/
