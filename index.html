@@ -8,9 +8,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/sidebar.css">
-    <style>
-
-    </style>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script language="javascript" type="text/javascript" src="js/map.js"></script>
     <script language="javascript" type="text/javascript" src="js/jqueryEvents.js"></script>
@@ -22,35 +19,23 @@
     <div id="wrapper"><!-- start wrapper -->
         <div id="sidebar-wrapper"> <!-- start sidebar-wrapper -->
             <a href="#" id="close-sidebar"><span class="glyphicon glyphicon-remove white size"></span></a>
-            <div class="container-fluid">
-                <div class="row divide">
+            <div class="container-fluid"> <!-- start of container-fluid-->
+                <div class="row divide"> <!-- start of row -->
                     <div id="col1" class="col-md-6">
                         <h2 id="suburb"></h2>
-                        <p id="summary">
-
-                        </p>
-
+                        <p id="summary"></p>
                     </div>
                     <div class = "divider"></div>
                     <div id = "col2" class="col-md-6 col-style">
                         <h2 id="compare-suburb"></h2>
-
-                        <p id="compare-summary">
-                        </p>
-
+                        <p id="compare-summary"></p>
                     </div>
-
-                </div>
+                </div> <!-- end of row -->
                 <div class = "checkbox">
-                    <label><input type="checkbox" name="suburb" id ="compare-checkbox" > Compare <br></label>
+                    <label><input type="checkbox" name="suburb" id ="compare-checkbox" > Compare Suburb<br></label>
                 </div>
-            </div>
-
-
+            </div> <!-- end of container-fluid -->
         </div> <!-- end side-wrapper -->
-        <!--<div id="sidebar-wrapper2">-->
-            <!--<h2 id="suburb_id2"></h2>-->
-        <!--</div>-->
 
         <div id="map"></div>
 		

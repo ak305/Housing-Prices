@@ -26,6 +26,25 @@ html, body {
     transition: all 0.5s ease;
 }
 
+
+/* Sidebar */
+#sidebar-wrapper {
+    /*margin-left: -250px;*/
+    /*left: 20%;*/
+    width: 0%;
+    background: white;
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 1000;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    /*padding: 20px;*/
+
+}
+
 #page-content-open {
     position: absolute;
     z-index: 1000;
@@ -45,6 +64,17 @@ html, body {
     z-index: 1000;
     top : 2%;
     right : 5%;
+}
+
+#suburb-hover {
+    position: fixed;
+    right: 8%;
+    width: 15%;
+    bottom: 18%;
+    height: 10%;
+    background: transparent;
+    text-align: center;
+    border: 1px solid red;
 }
 
 .trapezoid {
@@ -82,24 +112,6 @@ html, body {
     bottom: 10%;
 }
 
-/* Sidebar */
-#sidebar-wrapper {
-    /*margin-left: -250px;*/
-    /*left: 20%;*/
-    width: 0%;
-    background: white;
-    position: fixed;
-    height: 100%;
-    overflow-y: auto;
-    z-index: 1000;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    /*padding: 20px;*/
-
-}
-
 .divider{
     position:absolute;
     left:50%;
@@ -134,10 +146,6 @@ html, body {
 #wrapper.showSidebar .checkbox {
     visibility: visible;
 }
-/*#wrapper.showSidebar #sidebar-toggle {*/
-    /*width: 20%;*/
-    /*/!*padding: 20px;*!/*/
-/*}*/
 
 /* IF the sidebar is showing THEN
  * Set the map width to be 80%
@@ -183,9 +191,7 @@ html, body {
 
 }
 
-/*#wrapper.compareChecked #page-content-wrapper {*/
-    /*width: 20%;*/
-/*}*/
+
 /* Modifies the properties of the button with hidden visibility on load */
 .glyphicon-menu-right.button {
     /*transition-delay: 0.5s;*/
@@ -242,42 +248,31 @@ html, body {
 
 
 /*.sidebar-nav {*/
-    /*position: absolute;*/
-    /*top: 0;*/
-    /*width: 100%;*/
-    /*list-style: none;*/
-    /*margin: 0;*/
-    /*padding: 0;*/
+/*position: absolute;*/
+/*top: 0;*/
+/*width: 100%;*/
+/*list-style: none;*/
+/*margin: 0;*/
+/*padding: 0;*/
 /*}*/
 
-#suburb-hover {
-    position: fixed;
-    right: 8%;
-    width: 15%;
-    bottom: 18%;
-    height: 10%;
-    background: transparent;
-    text-align: center;
-    border: 1px solid red;
 
-}
+/*ul {*/
+    /*/!*padding: 0px;*!/*/
+    /*list-style-type:none;*/
+/*}*/
+/*ul li {*/
+    /*/!*list-style: none;*!/*/
+    /*/!*padding: 20px;*!/*/
+    /*margin: 20px;*/
+    /*text-indent: 20px;*/
+    /*line-height: 40px;*/
+/*}*/
 
-ul {
-    /*padding: 0px;*/
-    list-style-type:none;
-}
-ul li {
-    /*list-style: none;*/
-    /*padding: 20px;*/
-    margin: 20px;
-    text-indent: 20px;
-    line-height: 40px;
-}
-
-li a {
-    display: block;
-    text-decoration: none;
-}
+/*li a {*/
+    /*display: block;*/
+    /*text-decoration: none;*/
+/*}*/
 
 /*.sidebar-nav li a:hover {*/
     /*background: #16A085;*/
