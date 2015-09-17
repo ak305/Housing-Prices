@@ -13,6 +13,7 @@
     </style>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script language="javascript" type="text/javascript" src="js/map.js"></script>
+    <script language="javascript" type="text/javascript" src="js/jqueryEvents.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap"></script>
 	
 
@@ -24,32 +25,17 @@
             <div class="container-fluid">
                 <div class="row divide">
                     <div id="col1" class="col-md-6">
-                        <h2 id="suburb_id"></h2>
-                        <p>
-                            <hr>
-                            Median House Price: _____
-                            <hr>
-                            Average Income: _____
-                            <hr>
-                            Average Age: ______
-                            <hr>
-                            ...
+                        <h2 id="suburb"></h2>
+                        <p id="summary">
+
                         </p>
 
                     </div>
                     <div class = "divider"></div>
                     <div id = "col2" class="col-md-6 col-style">
-                        <h2 id="suburb_id2"></h2>
+                        <h2 id="compare-suburb"></h2>
 
-                        <p>
-                            <hr>
-                            Median House Price: _____
-                            <hr>
-                            Average Income: _____
-                            <hr>
-                            Average Age: ______
-                            <hr>
-                            ...
+                        <p id="compare-summary">
                         </p>
 
                     </div>
@@ -66,26 +52,6 @@
             <!--<h2 id="suburb_id2"></h2>-->
         <!--</div>-->
 
-        <div id="page-content-wrapper"> <!-- start page-content-wrapper -->
-            <div class="page-content"> <!-- start page-content -->
-                <div class="container-fluid"> <!-- start container-fluid -->
-                    <div class="row"> <!-- start row -->
-                        <div class="col-md-12 col-style">
-                            <!-- content of page -->
-                            <!--<p>-->
-                                <!--Lorem Ipsum is simply dummy text of the printing and typesetting industry.-->
-                                <!--Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,-->
-                                <!--when an unknown printer took a galley of type and scrambled it to make a type specimen book.-->
-                                <!--It has survived not only five centuries, but also the leap into electronic typesetting,-->
-                                <!--remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,-->
-                                <!--and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.-->
-                            <!--</p>-->
-                        </div>
-                    </div> <!-- end row -->
-                </div> <!-- end container-fluid -->
-            </div> <!-- start page-content -->
-        </div> <!-- end page-content-wrapper -->
-
         <div id="map"></div>
 		
 		<div id="heatmap-toggle"></div>
@@ -99,45 +65,6 @@
 
 
     </div> <!-- end wrapper-->
-	
-
-
-    <script>
-		// when user clicks on the toggle heatmap button
-		$("#heatmap-toggle").click(function(event){
-			changeHeatmap();
-		});
-	
-        // When the user clicks on the page-content-open button it will toggle the sidebarExpanded class
-        $("#page-content-open").click(function(event){
-            // Prevents the default action linked to this event
-            // e.g. href="#" is not activated on click
-			changeHeatmap();	
-            event.preventDefault();
-            // Switches the glyphicon from > to <
-            $(this).find('span').toggleClass('glyphicon-menu-right').toggleClass('glyphicon-menu-left');
-            $("#wrapper").toggleClass("sidebarExpanded");
-//            $('#col1').closest('[class^="col-md"]').toggleClass('col-md-12 col-md-6').siblings('[class^="col-md"]')
-//                    .removeClass('col-md-12')
-//                    .addClass('col-md-6');
-//            $('#col2').toggleClass('col-md-12 col-md-6');
-
-        });
-
-        // When the user clicks on the checkbox the class compareChecked will toggle on
-        $('input:checkbox[name=suburb]').click(function(event){
-            $("#wrapper").toggleClass("compareChecked");
-			
-        });
-
-        $("#close-sidebar").click(function(event){
-            event.preventDefault();
-            $("#wrapper").toggleClass("showSidebar");
-
-        });
-
-
-    </script>
 
 </body>
 </html>

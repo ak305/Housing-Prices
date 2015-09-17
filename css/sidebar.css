@@ -87,7 +87,7 @@ html, body {
     /*margin-left: -250px;*/
     /*left: 20%;*/
     width: 0%;
-    background: floralwhite;
+    background: white;
     position: fixed;
     height: 100%;
     overflow-y: auto;
@@ -100,60 +100,19 @@ html, body {
 
 }
 
-/*#suburb-id {*/
-    /*transition-delay: 0.5s;*/
-/*}*/
-
-/* Page Content */
-#page-content-wrapper {
-    left: 20%;
-    width: 0%;
-    background: mediumpurple;
-    position: fixed;
-    height: 100%;
-    overflow-y: auto;
-    z-index: 1000;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-
-}
-
-
-#page-content-wrapper .col-md-12 {
-    height: 0%;
-
-}
-/*.row.divide [class*='col-']:not(:last-child):after {*/
-    /*background: #e0e0e0;*/
-    /*width: 1px;*/
-    /*content: "";*/
-    /*display:block;*/
-    /*position: absolute;*/
-    /*top:0;*/
-    /*bottom: 0;*/
-    /*right: 0;*/
-    /*/!*right: 50%;*!/*/
-    /*/!*column-width: 50%;*!/*/
-    /*/!*min-height: 70px;*!/*/
-    /*visibility: hidden;*/
-/*}*/
-
-
 .divider{
     position:absolute;
     left:50%;
-    top:10%;
+    top: 11%;
     bottom:10%;
-    border-left:1px solid red;
+    border-left:1px solid black;
     visibility: hidden;
 }
 
 /* IF the sidebar is showing THEN
  * expanded the page-content-wrapper IF sidebarExpanded is toggled on
  */
-#wrapper.showSidebar.sidebarExpanded #page-content-wrapper {
+#wrapper.showSidebar.sidebarExpanded #sidebar-wrapper {
     width: 100%;
 }
 
@@ -193,6 +152,12 @@ html, body {
  */
 #wrapper.compareChecked #sidebar-wrapper {
     width: 40%;
+}
+
+#wrapper.compareChecked #page-content-open {
+    left: 40%;
+    right: auto;
+
 }
 
 #wrapper.compareChecked #page-content-open {
@@ -265,6 +230,17 @@ html, body {
     position: fixed;
     height: 10%;
 }
+
+
+
+
+
+
+
+
+
+
+
 /*.sidebar-nav {*/
     /*position: absolute;*/
     /*top: 0;*/

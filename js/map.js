@@ -43,11 +43,11 @@ function initMap() {
     map.data.loadGeoJson('https://bitbucket.org/williamg2103/json-test/raw/07a9b086bece031e6471ed1924640ff0af7f51e1/suburb_multicolour_test.json');
     // map.data.loadGeoJson('https://bitbucket.org/williamg2103/json-test/raw/c7e2a3d0618b83ca1f8a4d7c92ed4176a156fe4f/boundaries_all.json');
 
-    var infowindow = new google.maps.InfoWindow();
     // [START snippet]
     // Color each letter gray. Change the color when the isColorful property
     // is set to true.
-	
+
+
 	
     map.data.setStyle(function(feature) {
 		var color = 'gray';
@@ -63,6 +63,7 @@ function initMap() {
     });
 
     // Keep track of the previously clicked layer
+    var contentString = "";
     var lastClickedLayer;
     var compareLayer = null;
     var isChecked = false;
@@ -93,28 +94,47 @@ function initMap() {
 
         // Gets the name of the event layer clicked
         var suburbName = event.feature.getProperty('name');
+        if (suburbName == "randwick") {
+            contentString = '<hr>'+
+                'Median House Price: $1,500,00' +
+                '<hr>' +
+                'Average Income: $80,000' +
+                '<hr>' +
+                'Average Age: 31' +
+                '<hr>' +
+                '...';
+        } else {
+            contentString =  '<hr>'+
+                'Median House Price: _____' +
+                '<hr>' +
+                'Average Income: _____' +
+                '<hr>' +
+                'Average Age: ______' +
+                '<hr>' +
+                '...';
+
+        }
 
         // Gets the id of the html element
-        var suburb = document.getElementById('suburb_id');
+        var suburb = document.getElementById('suburb');
+        var summary = document.getElementById('summary');
 
         // Checks if the compareChecked has been toggled i.e. the checkbox has been ticked
         if($("#wrapper").hasClass('compareChecked')) {
             //isChecked = true;
-            // Switches the text to the element by the name of suburb_id2
-            suburb = document.getElementById('suburb_id2');
+            // Switches the text to the element by the name of compare-suburb
+            suburb = document.getElementById('compare-suburb');
+            summary = document.getElementById('compare-summary');
         }
-
-
-        //if (!isChecked) {
-        //    compareLayer = event;
-        //}
 
         // Calls the capitalise string function
         var suburbName = capitaliseFirstLetter(suburbName);
 
-        // Applies the changes to the string to the html contained in suburb_id
+        // Applies the changes to the string to the html contained in suburb
         suburb.innerHTML = suburbName;
-		// changeHeatmap();
+        summary.innerHTML = contentString;
+
+        // changeHeatmap();
     });
 
     // When the user hovers, tempt them to click by outlining the letters.
@@ -151,4 +171,6 @@ function initMap() {
             return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
         });
     }
+
+
 }
