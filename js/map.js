@@ -78,12 +78,15 @@ function initMap() {
         lastClickedLayer = event;
         event.feature.setProperty('isColorful', true);
 
+
         // Checks the state of the class showSidebar
         // If the it is not toggled, then it will be toggled as the map layer has been clicked
         if (!$("#wrapper").hasClass('showSidebar')) {
             $("#wrapper").toggleClass("showSidebar");
             $("#wrapper").toggleClass("showClose");
         }
+
+
 
         // Gets the id of the html element
         var sidebar = document.getElementById('sidebar-wrapper');
@@ -95,15 +98,16 @@ function initMap() {
         var suburb = document.getElementById('suburb_id');
 
         // Checks if the compareChecked has been toggled i.e. the checkbox has been ticked
-        if($("#wrapper").hasClass('compareChecked') && compareLayer != null) {
-            isChecked = true;
+        if($("#wrapper").hasClass('compareChecked')) {
+            //isChecked = true;
             // Switches the text to the element by the name of suburb_id2
             suburb = document.getElementById('suburb_id2');
         }
 
-        if (!isChecked) {
-            compareLayer = event;
-        }
+
+        //if (!isChecked) {
+        //    compareLayer = event;
+        //}
 
         // Calls the capitalise string function
         var suburbName = capitaliseFirstLetter(suburbName);
@@ -123,10 +127,20 @@ function initMap() {
         // newColor = newColor + '#111111';
         map.data.revertStyle();
         map.data.overrideStyle(event.feature, {fillColor: newColor});
+        var suburbName = event.feature.getProperty('name');
+        var suburbDisplay = document.getElementById('suburb-hover-id');
+        suburbName = capitaliseFirstLetter(suburbName);
+
+        suburbDisplay.innerHTML = suburbName;
+
+
     });
 
     map.data.addListener('mouseout', function(event) {
         map.data.revertStyle();
+        var suburbDisplay = document.getElementById('suburb-hover-id');
+        suburbDisplay.innerHTML = "";
+
     });
 
     // Capitalise all letters in a string

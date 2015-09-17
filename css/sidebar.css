@@ -76,8 +76,9 @@ html, body {
     visibility: hidden;
 }
 
-#checkbox {
+.checkbox {
     position: fixed;
+    visibility: hidden;
     bottom: 10%;
 }
 
@@ -164,9 +165,11 @@ html, body {
  */
 #wrapper.showSidebar #sidebar-wrapper {
     width: 20%;
-    padding: 20px;
 }
 
+#wrapper.showSidebar .checkbox {
+    visibility: visible;
+}
 /*#wrapper.showSidebar #sidebar-toggle {*/
     /*width: 20%;*/
     /*/!*padding: 20px;*!/*/
@@ -185,7 +188,6 @@ html, body {
  */
 #wrapper.compareChecked #sidebar-wrapper {
     width: 40%;
-    padding: 20px;
 }
 
 #wrapper.compareChecked #page-content-open {
@@ -235,7 +237,10 @@ html, body {
 
 #wrapper.closed #sidebar-wrapper{
     width: 0%;
-    padding: 0px;
+}
+
+#wrapper.closed #sidebar-wrapper {
+    width: 0%;
 }
 
 #wrapper.closed #map {
@@ -245,6 +250,7 @@ html, body {
 #wrapper.closed .button {
     visibility: hidden;
 }
+
 
 #heatmap-toggle {
     right: 8%;
@@ -262,6 +268,18 @@ html, body {
     /*margin: 0;*/
     /*padding: 0;*/
 /*}*/
+
+#suburb-hover {
+    position: fixed;
+    right: 8%;
+    width: 15%;
+    bottom: 18%;
+    height: 10%;
+    background: transparent;
+    text-align: center;
+    border: 1px solid red;
+
+}
 
 ul {
     /*padding: 0px;*/
