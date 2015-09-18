@@ -65,7 +65,7 @@ function initMap() {
     // Keep track of the previously clicked layer
     var contentString = "";
     var lastClickedLayer;
-    var compareLayer = null;
+    var cmpLayer = null;
     var isChecked = false;
     // When the user clicks, set 'isColorful', changing the color of the letters.
     map.data.addListener('click', function(event) {
@@ -119,12 +119,12 @@ function initMap() {
         var suburb = document.getElementById('suburb');
         var summary = document.getElementById('summary');
 
-        // Checks if the compareChecked has been toggled i.e. the checkbox has been ticked
-        if($("#wrapper").hasClass('compareChecked')) {
+        // Checks if the cmpChecked has been toggled i.e. the checkbox has been ticked
+        if($("#wrapper").hasClass('cmpChecked')) {
             //isChecked = true;
-            // Switches the text to the element by the name of compare-suburb
-            suburb = document.getElementById('compare-suburb');
-            summary = document.getElementById('compare-summary');
+            // Switches the text to the element by the name of cmp-suburb
+            suburb = document.getElementById('cmp-suburb');
+            summary = document.getElementById('cmp-summary');
         }
 
         // Calls the capitalise string function

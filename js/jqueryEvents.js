@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     var contentString = "";
-    var compareContentString = "";
+    var cmpContentString = "";
     // when user clicks on the toggle heatmap button
     $("#heatmap-toggle").click(function(event){
         changeHeatmap();
@@ -20,22 +20,22 @@ $(document).ready(function() {
         // Gets the id of the html element and clears the text
         if ($("#wrapper").hasClass('sidebarExpanded')) {
             contentString = document.getElementById('summary').innerHTML;
-            compareContentString = document.getElementById('compare-summary').innerHTML;
+            cmpContentString = document.getElementById('cmp-summary').innerHTML;
             document.getElementById('summary').innerHTML = "";
-            document.getElementById('compare-summary').innerHTML = "";
+            document.getElementById('cmp-summary').innerHTML = "";
         } else {
 
             document.getElementById('summary').innerHTML = contentString;
-            document.getElementById('compare-summary').innerHTML = compareContentString;
+            document.getElementById('cmp-summary').innerHTML = cmpContentString;
 
 
         }
 
     });
 
-    // When the user clicks on the checkbox the class compareChecked will toggle on
+    // When the user clicks on the checkbox the class cmpChecked will toggle on
     $('input:checkbox[name=suburb]').click(function(event){
-        $("#wrapper").toggleClass("compareChecked");
+        $("#wrapper").toggleClass("cmpChecked");
 
     });
 
