@@ -20,7 +20,7 @@ $(document).ready(function() {
         // Gets the id of the html element and clears the text
         if ($("#wrapper").hasClass('sidebarExpanded')) {
             contentString = document.getElementById('summary').innerHTML;
-            compareContentString = document.getElementById('summary').innerHTML;
+            compareContentString = document.getElementById('compare-summary').innerHTML;
             document.getElementById('summary').innerHTML = "";
             document.getElementById('compare-summary').innerHTML = "";
         } else {
