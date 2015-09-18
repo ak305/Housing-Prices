@@ -65,29 +65,10 @@ function initMap() {
     // Keep track of the previously clicked layer
     var contentString = "";
     var lastClickedLayer;
-    var cmpLayer = null;
-    var isChecked = false;
+    var cmpLayer;
+    var isChecked;
     // When the user clicks, set 'isColorful', changing the color of the letters.
     map.data.addListener('click', function(event) {
-
-        // Checks if the previous layer has been clicked
-        if (lastClickedLayer) {
-            // Then reverts the colour back the original state
-            lastClickedLayer.feature.setProperty('isColorful', false);
-        }
-
-        lastClickedLayer = event;
-        event.feature.setProperty('isColorful', true);
-
-
-        // Checks the state of the class showSidebar
-        // If the it is not toggled, then it will be toggled as the map layer has been clicked
-        if (!$("#wrapper").hasClass('showSidebar')) {
-            $("#wrapper").toggleClass("showSidebar");
-            $("#wrapper").toggleClass("showClose");
-        }
-
-
 
         // Gets the id of the html element
         var sidebar = document.getElementById('sidebar-wrapper');
@@ -119,13 +100,41 @@ function initMap() {
         var suburb = document.getElementById('suburb');
         var summary = document.getElementById('summary');
 
+
+
         // Checks if the cmpChecked has been toggled i.e. the checkbox has been ticked
         if($("#wrapper").hasClass('cmpChecked')) {
-            //isChecked = true;
+
+            isChecked = true;
             // Switches the text to the element by the name of cmp-suburb
             suburb = document.getElementById('cmp-suburb');
             summary = document.getElementById('cmp-summary');
+        } else {
+            isChecked = false;
+            cmpLayer = event;
         }
+
+        // Checks if the previous layer has been clicked
+        if ((isChecked && cmpLayer != lastClickedLayer) || (!isChecked && lastClickedLayer))  {
+            // Then reverts the colour back the original state
+
+            lastClickedLayer.feature.setProperty('isColorful', false);
+        }
+
+        lastClickedLayer = event;
+        event.feature.setProperty('isColorful', true);
+
+
+        // Checks the state of the class showSidebar
+        // If the it is not toggled, then it will be toggled as the map layer has been clicked
+        if (!$("#wrapper").hasClass('showSidebar')) {
+            $("#wrapper").toggleClass("showSidebar");
+            $("#wrapper").toggleClass("showClose");
+        }
+
+
+
+
 
         // Calls the capitalise string function
         var suburbName = capitaliseFirstLetter(suburbName);

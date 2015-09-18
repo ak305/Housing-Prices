@@ -36,7 +36,10 @@ $(document).ready(function() {
     // When the user clicks on the checkbox the class cmpChecked will toggle on
     $('input:checkbox[name=suburb]').click(function(event){
         $("#wrapper").toggleClass("cmpChecked");
-
+        if ($("#wrapper").hasClass('sidebarExpanded')) {
+            document.getElementById('summary').innerHTML = "";
+            document.getElementById('cmp-summary').innerHTML = "";
+        }
     });
 
     $("#close-sidebar").click(function(event){
