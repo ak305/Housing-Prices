@@ -64,8 +64,7 @@ function initMap() {
 
     // Keep track of the previously clicked layer
     var contentString = "";
-    var lastClickedLayer;
-    var cmpLayer;
+
     var isChecked;
     // When the user clicks, set 'isColorful', changing the color of the letters.
     map.data.addListener('click', function(event) {
