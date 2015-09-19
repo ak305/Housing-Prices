@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>House Life</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/sidebar.css">
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script language="javascript">
+        var lastClickedLayer;
+        var cmpLayer;
+    </script>
+    <script language="javascript" type="text/javascript" src="js/map.js"></script>
+    <script language="javascript" type="text/javascript" src="js/jqueryEvents.js"></script>
+    <script language="javascript" type="text/javascript" src="js/mapStyle.js.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap"></script>
+	
+
+</head>
+<body>
+    <div id="wrapper"><!-- start wrapper -->
+
+        <div id="sidebar-wrapper"> <!-- start sidebar-wrapper -->
+            <div class="container-fluid"> <!-- start of container-fluid-->
+                <a href="#" id="close-sidebar"><span class="glyphicon glyphicon-remove white size"></span></a>
+                <div class="row"> <!-- start of row -->
+                    <div id="col1" class="col-md-12">
+                        <h2 id="suburb"></h2>
+                        <p id="summary"></p>
+                    </div>
+                </div> <!-- end of row -->
+                <div class = "checkbox">
+                    <label><input type="checkbox" name="suburb" id ="cmp-checkbox" > Compare Suburb<br></label>
+                </div>
+                <div class = "divider"></div>
+
+            </div> <!-- end of container-fluid -->
+        </div> <!-- end side-wrapper -->
+        <div id="cmp-sidebar-wrapper"> <!-- start sidebar-wrapper -->
+            <div class="container-fluid"> <!-- start of container-fluid-->
+                <div class = "divider2"></div>
+
+                <div class="row"> <!-- start of row -->
+                    <div id = "col2" class="col-md-12 col-style">
+                        <h2 id="cmp-suburb"></h2>
+                        <p id="cmp-summary"></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="map"></div>
+
+
+        <div id="heatmap-toggle"></div>
+
+        <div id="suburb-hover"><h3 id="suburb-hover-id">TEST</h3></div>
+
+
+        <div> <!-- start page-content-open -->
+            <a href="#" id="page-content-open"><span class="glyphicon glyphicon-menu-right button white size"></span></a>
+        </div> <!-- end page-content-open -->
+
+
+    </div> <!-- end wrapper-->
+
+</body>
+</html>
