@@ -1,22 +1,34 @@
 var count = 1;
 var map;
 var setHeatmap1Fn = function(feature){
+	var color = 'gray';
+    if (!feature.getProperty('isColorful')) {
+        color = feature.getProperty('color1');
+    }
 	return{
-        fillColor: feature.getProperty('color1'),
+        fillColor: color,
         strokeColor: feature.getProperty('color1'),
         strokeWeight: 1
 	};
 };
 var setHeatmap2Fn = function(feature){
+	var color = 'gray';
+    if (!feature.getProperty('isColorful')) {
+        color = feature.getProperty('color2');
+    }
 	return{
-        fillColor: feature.getProperty('color2'),
+        fillColor: color,
         strokeColor: feature.getProperty('color2'),
         strokeWeight: 1
 	};
 };
 var setHeatmap3Fn = function(feature){
+	var color = 'gray';
+    if (!feature.getProperty('isColorful')) {
+        color = feature.getProperty('color3');
+    }
 	return{
-        fillColor: feature.getProperty('color3'),
+        fillColor: color,
         strokeColor: feature.getProperty('color3'),
         strokeWeight: 1
 	};
