@@ -258,13 +258,27 @@ function initMap() {
             // Switches the text to the element by the name of cmp-suburb
             suburb = document.getElementById('cmp-suburb');
             summary = document.getElementById('cmp-summary');
+
+            if (cmpLayer.feature.getProperty('name') == event.feature.getProperty('name')) {
+                suburbName = "";
+                contentString = "";
+            }
         } else {
             isChecked = false;
             cmpLayer = event;
         }
 
+        // Calls the capitalise string function
+        var suburbName = capitaliseFirstLetter(suburbName);
+
+        // Applies the changes to the string to the html contained in suburb
+        suburb.innerHTML = suburbName;
+        summary.innerHTML = contentString;
+
+
         // Checks if the previous layer has been clicked
-        if ((isChecked && cmpLayer != lastClickedLayer) || (!isChecked && lastClickedLayer))  {
+        if ((isChecked && cmpLayer != lastClickedLayer && cmpLayer != event) ||
+            (!isChecked && lastClickedLayer))  {
             // Then reverts the colour back the original state
 
             lastClickedLayer.feature.setProperty('isColorful', false);
@@ -285,12 +299,6 @@ function initMap() {
 
 
 
-        // Calls the capitalise string function
-        var suburbName = capitaliseFirstLetter(suburbName);
-
-        // Applies the changes to the string to the html contained in suburb
-        suburb.innerHTML = suburbName;
-        summary.innerHTML = contentString;
 
         // changeHeatmap();
     });

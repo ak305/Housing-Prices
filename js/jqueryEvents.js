@@ -37,8 +37,11 @@ $(document).ready(function() {
     $('input:checkbox[name=suburb]').click(function(event){
         $("#wrapper").toggleClass("cmpChecked");
         if (!$("#wrapper").hasClass('cmpChecked')) {
+            document.getElementById('cmp-suburb').innerHTML = "";
             document.getElementById('cmp-summary').innerHTML = "";
-            lastClickedLayer.feature.setProperty('isColorful', false);
+            if (cmpLayer.feature.getProperty('name') != lastClickedLayer.feature.getProperty('name')) {
+                lastClickedLayer.feature.setProperty('isColorful', false);
+            }
             lastClickedLayer = cmpLayer;
         }
     });
