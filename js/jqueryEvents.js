@@ -27,9 +27,9 @@ $(document).ready(function() {
 
             document.getElementById('summary').innerHTML = contentString;
             document.getElementById('cmp-summary').innerHTML = cmpContentString;
-
-
         }
+
+        $("#wrapper")
 
     });
 
@@ -50,6 +50,14 @@ $(document).ready(function() {
         event.preventDefault();
         $("#wrapper").toggleClass("showSidebar");
 
+    });
+
+    $('.carousel').carousel({
+        interval: 3000
+    })
+
+    $('ul.nav.nav-pills li a').click(function() {
+        $(this).parent().addClass('active').siblings().removeClass('active');
     });
 
 });

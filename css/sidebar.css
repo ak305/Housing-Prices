@@ -79,6 +79,15 @@ html, body {
     border: 1px solid red;
 }
 
+#carousel-suburb {
+    left: 10%;
+    right: 10%;
+    width: 80%;
+}
+.carousel {
+    visibility: hidden;
+}
+
 .trapezoid {
     position: relative;
     height: 100px;
@@ -114,10 +123,10 @@ html, body {
 
 .divider{
     position:absolute;
-    left: calc(100% - 5px);
-    top: 0;
-    bottom: 0;
-    border-left:5px solid lightgrey;
+    left: calc(100% - 1px);
+    top: 10px;
+    bottom: 10px;
+    border-left:1px solid lightgrey;
     visibility: hidden;
     transition-delay: 0.5s;
 
@@ -133,10 +142,22 @@ html, body {
     transition-delay: 0.5s;
 
 }
+.nav-pills {
+    text-align: center;
+    visibility: hidden;
+}
 
-
+.nav-pills > li{
+    float:none;
+    display:inline-block;
+}
 
 .container-fluid {
+
+    visibility: hidden;
+}
+
+.container-fluid .sidebar-open {
     /*background: white;*/
     /*margin-left: 10px;*/
     margin-top: 10px;
@@ -146,7 +167,10 @@ html, body {
     /*width: calc(100% - 20px);*/
     width: auto;
     height: calc(100% - 20px);
-    /*visibility: hidden;*/
+}
+
+.container-fluid .sidebar-expanded {
+    /*display:none;*/
 }
 
 
@@ -173,6 +197,22 @@ html, body {
     visibility: hidden;
 }
 
+#wrapper.showSidebar.sidebarExpanded .carousel {
+    visibility: visible;
+    transition-delay: 0.5s;
+
+}
+
+#wrapper.showSidebar.sidebarExpanded .container-fluid.sidebar-expanded {
+    visibility: visible;
+    /*display: inline;*/
+}
+
+#wrapper.showSidebar.sidebarExpanded .nav-pills {
+    visibility: visible;
+    transition-delay: 0.5s;
+}
+
 /* IF the showSidebar is toggled on THEN
  *  set the width to 20 % AND add 20 px padding
  */
@@ -181,6 +221,15 @@ html, body {
     z-index: 100;
     left: 0%;
 
+}
+
+#wrapper.showSidebar .container-fluid.sidebar-open {
+    visibility: visible;
+    -webkit-transition: all 0.5s ease 0.5s;
+    -moz-transition: all 0.5s ease 0.5s;
+    -ms-transition: all 0.5s ease 0.5s;
+    -o-transition: all 0.5s ease 0.5s;
+    transition: all 0.5s ease 0.5s;
 }
 
 #wrapper.showSidebar #cmp-sidebar-wrapper {

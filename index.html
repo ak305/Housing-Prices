@@ -4,9 +4,9 @@
     <title>House Life</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/sidebar.css">
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script language="javascript">
@@ -24,8 +24,8 @@
     <div id="wrapper"><!-- start wrapper -->
 
         <div id="sidebar-wrapper"> <!-- start sidebar-wrapper -->
-            <div class="container-fluid"> <!-- start of container-fluid-->
-                <a href="#" id="close-sidebar"><span class="glyphicon glyphicon-remove white size"></span></a>
+            <a href="#" id="close-sidebar"><span class="glyphicon glyphicon-remove white size"></span></a>
+            <div class="container-fluid sidebar-open"> <!-- start of container-fluid-->
                 <div class="row"> <!-- start of row -->
                     <div id="col1" class="col-md-12">
                         <h2 id="suburb"></h2>
@@ -35,14 +35,73 @@
                 <div class = "checkbox">
                     <label><input type="checkbox" name="suburb" id ="cmp-checkbox" > Compare Suburb<br></label>
                 </div>
+
                 <div class = "divider"></div>
 
             </div> <!-- end of container-fluid -->
+            <div id="detailed-info" class="container-fluid sidebar-expanded"> <!-- start detailed-info -->
+                <div class="row"> <!-- start of row -->
+                    <div id="carousel-suburb" class="carousel slide" data-ride="carousel"> <!-- start carousel -->
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-suburb" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-suburb" data-slide-to="1"></li>
+                            <li data-target="#carousel-suburb" data-slide-to="2"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img src="http://placehold.it/1200x315" alt="...">
+                                <div class="carousel-caption">
+                                    <h3>Caption Text</h3>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img src="http://placehold.it/1200x315" alt="...">
+                                <div class="carousel-caption">
+                                    <h3>Caption Text</h3>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img src="http://placehold.it/1200x315" alt="...">
+                                <div class="carousel-caption">
+                                    <h3>Caption Text</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#carousel-suburb" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-suburb" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </div> <!-- Carousel -->
+                </div> <!-- end row -->
+                <div class="row"> <!-- start row -->
+                    <div>
+                        <ul class="nav nav-pills">
+                            <li class="active"><a href="#prices">Prices</a></li>
+                            <li><a href="#schools">Schools</a></li>
+                            <li><a href="#transport">Transports</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-12">
+                        <a name="prices">Property Prices</a>
+                        <p id="prices-info"></p>
+                        <a name="schools">Schools</a>
+                        <p id="schools-info"></p>
+                        <a name="transport">Schools</a>
+                        <p id="transport-info"></p>
+                    </div>
+                </div> <!-- end row -->
+            </div>
+
         </div> <!-- end side-wrapper -->
         <div id="cmp-sidebar-wrapper"> <!-- start sidebar-wrapper -->
-            <div class="container-fluid"> <!-- start of container-fluid-->
-                <div class = "divider2"></div>
-
+            <div class="container-fluid sidebar-open"> <!-- start of container-fluid-->
                 <div class="row"> <!-- start of row -->
                     <div id = "col2" class="col-md-12 col-style">
                         <h2 id="cmp-suburb"></h2>
@@ -50,7 +109,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
         <div id="map"></div>
