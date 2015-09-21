@@ -49,8 +49,8 @@ html, body {
 
 #page-content-open {
     position: absolute;
-    z-index: 1000;
-    left: 20%;
+    z-index: -1;
+    left: 0;
     top: 50%;
     /*transition-delay: 0.5s;*/
     -webkit-transition: all 0.5s ease;
@@ -88,14 +88,14 @@ html, body {
     visibility: hidden;
 }
 
-.trapezoid {
-    position: relative;
-    height: 100px;
-    width: 0;
-    border-top: 30px solid transparent;
-    border-left: 50px solid black;
-    border-bottom: 30px solid transparent;
-}
+/*.trapezoid {*/
+    /*position: relative;*/
+    /*height: 100px;*/
+    /*width: 0;*/
+    /*border-top: 30px solid transparent;*/
+    /*border-left: 50px solid black;*/
+    /*border-bottom: 30px solid transparent;*/
+/*}*/
 
 .white{
     color: navy;
@@ -121,7 +121,7 @@ html, body {
     bottom: 10px;
 }
 
-.divider{
+.divider {
     position:absolute;
     left: calc(100% - 1px);
     top: 10px;
@@ -132,16 +132,17 @@ html, body {
 
 }
 
-.divider2{
-    position:absolute;
-    left: 0;
-    top: 0;
-    bottom:0;
-    border-left:5px solid lightgrey;
-    visibility: hidden;
-    transition-delay: 0.5s;
+/*.divider2{*/
+    /*position:absolute;*/
+    /*left: 0;*/
+    /*top: 0;*/
+    /*bottom:0;*/
+    /*border-left:5px solid lightgrey;*/
+    /*visibility: hidden;*/
+    /*transition-delay: 0.5s;*/
 
-}
+/*}*/
+
 .nav-pills {
     text-align: center;
     visibility: hidden;
@@ -173,7 +174,11 @@ html, body {
     /*display:none;*/
 }
 
-
+/* Modifies the properties of the button with hidden visibility on load */
+.button {
+    /*transition-delay: 0.5s;*/
+    visibility: hidden;
+}
 
 
 
@@ -213,6 +218,14 @@ html, body {
     transition-delay: 0.5s;
 }
 
+#wrapper.showSidebar.sidebarExpanded #close-sidebar {
+    visibility: hidden;
+}
+
+#wrapper.showSidebar.sidebarExpanded .row {
+    transition-delay: 0.5s
+}
+
 /* IF the showSidebar is toggled on THEN
  *  set the width to 20 % AND add 20 px padding
  */
@@ -237,6 +250,11 @@ html, body {
     z-index: 0;
     left: 20%;
 
+}
+
+#wrapper.showSidebar #page-content-open {
+    left: 20%;
+    z-index: 1000;
 }
 
 /*#wrapper.showSidebar .checkbox {*/
@@ -312,17 +330,13 @@ html, body {
     width: 60%;
 }
 
-/* Modifies the properties of the button with hidden visibility on load */
-.glyphicon-menu-right.button {
-    /*transition-delay: 0.5s;*/
-    visibility: hidden;
-}
+
 
 /* IF the sidebar is showing THEN
  * the button will become visible
  */
-#wrapper.showSidebar .glyphicon-menu-right.button{
-    transition-delay: 1.0s;
+#wrapper.showSidebar .button{
+    /*transition-delay: 1.0s;*/
     visibility: visible;
 }
 
@@ -331,22 +345,17 @@ html, body {
 }
 
 
-#wrapper.closed #sidebar-wrapper{
-    width: 0%;
-}
+/*#wrapper.closed #sidebar-wrapper{*/
+    /*lef*/
+/*}*/
 
-#wrapper.closed #sidebar-wrapper {
-    width: 0%;
-}
+/*#wrapper.closed #sidebar-wrapper {*/
+    /*width: 0%;*/
+/*}*/
 
-#wrapper.closed #map {
-    width: 100%;
-}
-
-#wrapper.closed .button {
-    visibility: hidden;
-}
-
+/*#wrapper.closed #map {*/
+    /*width: 100%;*/
+/*}*/
 
 #heatmap-toggle {
     right: 8%;

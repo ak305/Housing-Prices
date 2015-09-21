@@ -312,6 +312,7 @@ function initMap() {
 
 
 
+
         // changeHeatmap();
     });
 
