@@ -1,64 +1,73 @@
-var count = 1;
-var map;
-var setHeatmap1Fn = function(feature){
-	var color = 'gray';
-    if (!feature.getProperty('isColorful')) {
-        color = feature.getProperty('color1');
+function initAutocomplete() {
+    map = new google.maps.Map(document.getElementById('map'), {
+        //zoom: 10,
+        //center: {lat: -33.8060528, lng: 150.9423714},
+        zoom: 12, //Test setting for map
+        center: {lat: -33.916383, lng: 151.257885},
+        zoomControl: true,
+        scaleControl: true,
+        streetViewControl: false,
+    });
+  
+  // Create the search box and link it to the UI element.
+  var input = document.getElementById('pac-input');
+  var searchBox = new google.maps.places.SearchBox(input);
+  map.controls[google.maps.ControlPosition.TOP_RIGHT].push(input);
+
+  // Bias the SearchBox results towards current map's viewport.
+  map.addListener('bounds_changed', function() {
+    searchBox.setBounds(map.getBounds());
+  });
+
+  var markers = [];
+  // [START region_getplaces]
+  // Listen for the event fired when the user selects a prediction and retrieve
+  // more details for that place.
+  searchBox.addListener('places_changed', function() {
+    var places = searchBox.getPlaces();
+
+    if (places.length == 0) {
+      return;
     }
-	return{
-        fillColor: color,
-        strokeColor: feature.getProperty('color1'),
-        strokeWeight: 1
-	};
-};
-var setHeatmap2Fn = function(feature){
-	var color = 'gray';
-    if (!feature.getProperty('isColorful')) {
-        color = feature.getProperty('color2');
-    }
-	return{
-        fillColor: color,
-        strokeColor: feature.getProperty('color2'),
-        strokeWeight: 1
-	};
-};
-var setHeatmap3Fn = function(feature){
-	var color = 'gray';
-    if (!feature.getProperty('isColorful')) {
-        color = feature.getProperty('color3');
-    }
-	return{
-        fillColor: color,
-        strokeColor: feature.getProperty('color3'),
-        strokeWeight: 1
-	};
-};
-function changeHeatmap(){
-	// map.data.setStyle(setHeatmap2Fn);
-	if(count % 3 == 0){
-		map.data.setStyle(setHeatmap1Fn);
-	}else if(count % 3 == 1){
-		map.data.setStyle(setHeatmap2Fn);
-	}else{
-		map.data.setStyle(setHeatmap3Fn);
-	}
-	count++;
+
+    // Clear out the old markers.
+    markers.forEach(function(marker) {
+      marker.setMap(null);
+    });
+    markers = [];
+
+    // For each place, get the icon, name and location.
+    var bounds = new google.maps.LatLngBounds();
+    places.forEach(function(place) {
+      var icon = {
+        url: place.icon,
+        size: new google.maps.Size(71, 71),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(25, 25)
+      };
+
+      // Create a marker for each place.
+      markers.push(new google.maps.Marker({
+        map: map,
+        icon: icon,
+        title: place.name,
+        position: place.geometry.location
+      }));
+
+      if (place.geometry.viewport) {
+        // Only geocodes have viewport.
+        bounds.union(place.geometry.viewport);
+      } else {
+        bounds.extend(place.geometry.location);
+      }
+    });
+    map.fitBounds(bounds);
+  });
+  initMap();
+  // [END region_getplaces]
 }
-
-function heatmapHousing(){
-	map.data.setStyle(setHeatmap1Fn);
-}
-
-function heatmapSchools(){
-	map.data.setStyle(setHeatmap2Fn);
-}
-
-function heatmapHospitals(){
-	map.data.setStyle(setHeatmap3Fn);
-}
-
-function initMap() {
-
+function initMap(){
     var customMapType = new google.maps.StyledMapType([
         {
             "featureType": "landscape.man_made",
@@ -198,31 +207,11 @@ function initMap() {
     ]);
 
     var customMapTypeId = 'custom_style';
-
-
-    map = new google.maps.Map(document.getElementById('map'), {
-        //zoom: 10,
-        //center: {lat: -33.8060528, lng: 150.9423714},
-        zoom: 12, //Test setting for map
-        center: {lat: -33.916383, lng: 151.257885},
-        zoomControl: true,
-        scaleControl: true,
-        streetViewControl: false,
-    });
-
     map.mapTypes.set(customMapTypeId, customMapType);
     map.setMapTypeId(customMapTypeId);
 
     // Load GeoJSON.
     map.data.loadGeoJson('https://bitbucket.org/williamg2103/json-test/raw/07a9b086bece031e6471ed1924640ff0af7f51e1/suburb_multicolour_test.json');
-    // map.data.loadGeoJson('https://bitbucket.org/williamg2103/json-test/raw/c7e2a3d0618b83ca1f8a4d7c92ed4176a156fe4f/boundaries_all.json');
-
-    // [START snippet]
-    // Color each letter gray. Change the color when the isColorful property
-    // is set to true.
-
-
-	
     map.data.setStyle(function(feature) {
 		var color = 'black';
         if (!feature.getProperty('isColorful')) {
@@ -240,7 +229,6 @@ function initMap() {
     var contentString = "";
 
     var isChecked;
-    // When the user clicks, set 'isColorful', changing the color of the letters.
     map.data.addListener('click', function(event) {
 
         // Gets the id of the html element
@@ -268,31 +256,28 @@ function initMap() {
                 '...';
 
         }
-
-        // Gets the id of the html element
+		
         var suburb = document.getElementById('suburb');
         var summary = document.getElementById('summary');
 
-
-
         // Checks if the cmpChecked has been toggled i.e. the checkbox has been ticked
         if($("#wrapper").hasClass('cmpChecked')) {
-            if (!$("#wrapper").hasClass("cmpSuburbClicked")) {
-                $("#wrapper").toggleClass("cmpSuburbClicked");
-            }
-            isChecked = true;
-            // Switches the text to the element by the name of cmp-suburb
-            suburb = document.getElementById('cmp-suburb');
-            summary = document.getElementById('cmp-summary');
+           if (!$("#wrapper").hasClass("cmpSuburbClicked")) {
+               $("#wrapper").toggleClass("cmpSuburbClicked");
+           }
+           isChecked = true;
+           // Switches the text to the element by the name of cmp-suburb
+           suburb = document.getElementById('cmp-suburb');
+           summary = document.getElementById('cmp-summary');
 
-            if (cmpLayer.feature.getProperty('name') == event.feature.getProperty('name')) {
-                suburbName = "";
-                contentString = "";
-            }
-        } else {
-            isChecked = false;
-            cmpLayer = event;
-        }
+           if (cmpLayer.feature.getProperty('name') == event.feature.getProperty('name')) {
+               suburbName = "";
+               contentString = "";
+           }
+       } else {
+           isChecked = false;
+           cmpLayer = event;
+       }	
 
         // Calls the capitalise string function
         var suburbName = capitaliseFirstLetter(suburbName);
@@ -320,16 +305,8 @@ function initMap() {
             $("#wrapper").toggleClass("showSidebar");
             $("#wrapper").toggleClass("showClose");
         }
-
-
-
-
-        // changeHeatmap();
-    });
-
-    // When the user hovers, tempt them to click by outlining the letters.
-    // Call revertStyle() to remove all overrides. This will use the style rules
-    // defined in the function passed to setStyle()
+		
+	});
     map.data.addListener('mouseover', function(event) {
         // newColor = feature.getProperty('color');
         newColor = 'red';
@@ -352,15 +329,69 @@ function initMap() {
         suburbDisplay.innerHTML = "";
 
     });
-
-    // Capitalise all letters in a string
-
-    // TODO fix brighton le sands
-    function capitaliseFirstLetter(string) {
-        return string.replace(/\w\S*/g, function(txt) {
-            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-        });
+}
+var count = 1;
+var map;
+var setHeatmap1Fn = function(feature){
+	var color = 'gray';
+    if (!feature.getProperty('isColorful')) {
+        color = feature.getProperty('color1');
     }
+	return{
+        fillColor: color,
+        strokeColor: feature.getProperty('color1'),
+        strokeWeight: 1
+	};
+};
+var setHeatmap2Fn = function(feature){
+	var color = 'gray';
+    if (!feature.getProperty('isColorful')) {
+        color = feature.getProperty('color2');
+    }
+	return{
+        fillColor: color,
+        strokeColor: feature.getProperty('color2'),
+        strokeWeight: 1
+	};
+};
+var setHeatmap3Fn = function(feature){
+	var color = 'gray';
+    if (!feature.getProperty('isColorful')) {
+        color = feature.getProperty('color3');
+    }
+	return{
+        fillColor: color,
+        strokeColor: feature.getProperty('color3'),
+        strokeWeight: 1
+	};
+};
+function changeHeatmap(){
+	// map.data.setStyle(setHeatmap2Fn);
+	if(count % 3 == 0){
+		map.data.setStyle(setHeatmap1Fn);
+	}else if(count % 3 == 1){
+		map.data.setStyle(setHeatmap2Fn);
+	}else{
+		map.data.setStyle(setHeatmap3Fn);
+	}
+	count++;
+}
+
+function heatmapHousing(){
+	map.data.setStyle(setHeatmap1Fn);
+}
+
+function heatmapSchools(){
+	map.data.setStyle(setHeatmap2Fn);
+}
+
+function heatmapHospitals(){
+	map.data.setStyle(setHeatmap3Fn);
+}
 
 
+function capitaliseFirstLetter(string) {
+    return string.replace(/\w\S*/g, function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
 }
