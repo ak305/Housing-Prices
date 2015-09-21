@@ -100,6 +100,8 @@ $(document).ready(function() {
     $('input:checkbox[name=suburb]').click(function(event){
         $("#wrapper").toggleClass("cmpChecked");
         if (!$("#wrapper").hasClass('cmpChecked')) {
+            $("#wrapper").removeClass("cmpSuburbClicked");
+
             document.getElementById('cmp-suburb').innerHTML = "";
             document.getElementById('cmp-summary').innerHTML = "";
             if (cmpLayer.feature.getProperty('name') != lastClickedLayer.feature.getProperty('name')) {
@@ -112,6 +114,7 @@ $(document).ready(function() {
     $("#close-sidebar").click(function(event){
         event.preventDefault();
         $("#wrapper").toggleClass("showSidebar");
+        lastClickedLayer.feature.setProperty('isColorful', false);
         //$("#wrapper").removeClass('#page-content-open');
 
 

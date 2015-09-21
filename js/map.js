@@ -277,7 +277,9 @@ function initMap() {
 
         // Checks if the cmpChecked has been toggled i.e. the checkbox has been ticked
         if($("#wrapper").hasClass('cmpChecked')) {
-
+            if (!$("#wrapper").hasClass("cmpSuburbClicked")) {
+                $("#wrapper").toggleClass("cmpSuburbClicked");
+            }
             isChecked = true;
             // Switches the text to the element by the name of cmp-suburb
             suburb = document.getElementById('cmp-suburb');
