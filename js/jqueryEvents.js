@@ -2,6 +2,14 @@ $(document).ready(function() {
 
     var contentString = "";
     var cmpContentString = "";
+
+    if ( ($(window).height() + 100) < $(document).height() ) {
+        $('#top-link-block').removeClass('hidden').affix({
+            // how far to scroll down before link "slides" into view
+            offset: {top:100}
+        });
+    }
+
     // when user clicks on the toggle heatmap button
     $("#heatmap-housing").click(function(event){
         heatmapHousing();
@@ -38,20 +46,7 @@ $(document).ready(function() {
                 'who migrated to Australia in 1842, were responsible for the early development of Randwick as ' +
                 'well as suburb Coogee.. Simeon lived in a house called Blenheim, which can still be seen ' +
                 'in Blenheim Street. It was neglected for some time but was eventually acquired by' +
-                ' Randwick Council and then restored.' +
-                '<br>' +
-                '<br>' +
-                '<br>' +
-                '<br>' +
-                '<br>' +
-                '<br>' +
-                '<br>' +
-                '<br>' +
-                '<br>' +
-                '<br>' +
-                '<br>' +
-
-                '<br>';
+                ' Randwick Council and then restored.';
 
 
 
