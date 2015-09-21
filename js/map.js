@@ -45,6 +45,18 @@ function changeHeatmap(){
 	count++;
 }
 
+function heatmapHousing(){
+	map.data.setStyle(setHeatmap1Fn);
+}
+
+function heatmapSchools(){
+	map.data.setStyle(setHeatmap2Fn);
+}
+
+function heatmapHospitals(){
+	map.data.setStyle(setHeatmap3Fn);
+}
+
 function initMap() {
 
     var customMapType = new google.maps.StyledMapType([
@@ -306,9 +318,6 @@ function initMap() {
             $("#wrapper").toggleClass("showSidebar");
             $("#wrapper").toggleClass("showClose");
         }
-
-
-
 
 
 

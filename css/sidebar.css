@@ -152,6 +152,10 @@ html, body {
     float:none;
     display:inline-block;
 }
+.nav-pills {
+    text-align: center;
+    visibility: hidden;
+}
 
 .container-fluid {
 
@@ -179,7 +183,6 @@ html, body {
     /*transition-delay: 0.5s;*/
     visibility: hidden;
 }
-
 
 
 /* IF the sidebar is showing THEN
@@ -357,17 +360,69 @@ html, body {
     /*width: 100%;*/
 /*}*/
 
-#heatmap-toggle {
-    right: 8%;
-    width: 7%;
-    bottom: 8%;
-    background: mediumpurple;
+#heatmap-housing {
     position: fixed;
     z-index: 100;
-    height: 10%;
+    right: 15%;
+    width: 5%;
+    bottom: 13%;
+    height: 5%;
+    background: mediumpurple;
+    text-align: center;
+    border: 1px solid red;
+}
+
+#heatmap-schools {
+    position: fixed;
+    z-index: 100;
+    right: 10%;
+    width: 5%;
+    bottom: 13%;
+    height: 5%;
+    background: lightblue;
+    text-align: center;
+    border: 1px solid red;
+}
+
+#heatmap-hospitals {
+    position: fixed;
+    z-index: 100;
+    right: 5%;
+    width: 5%;
+    bottom: 13%;
+    height: 5%;
+    background: green;
+    text-align: center;
+    border: 1px solid red;
 }
 
 
+/*.sidebar-nav {*/
+/*position: absolute;*/
+/*top: 0;*/
+/*width: 100%;*/
+/*list-style: none;*/
+/*margin: 0;*/
+/*padding: 0;*/
+/*}*/
+
+
+/*ul {*/
+    /*/!*padding: 0px;*!/*/
+    /*list-style-type:none;*/
+/*}*/
+/*ul li {*/
+    /*/!*list-style: none;*!/*/
+    /*/!*padding: 20px;*!/*/
+    /*margin: 20px;*/
+    /*text-indent: 20px;*/
+    /*line-height: 40px;*/
+/*}*/
+
+/*li a {*/
+    /*display: block;*/
+    /*text-decoration: none;*/
+/*}*/
 
 
 
