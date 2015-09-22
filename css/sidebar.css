@@ -43,6 +43,7 @@ html, body {
     -webkit-transition: all 0.5s ease;
     -ms-transition:  all 0.5s ease ;
     -moz-transition: all 0.5s ease;
+    -ms-transition:  all 0.5s ease ;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 
@@ -65,6 +66,8 @@ html, body {
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 
+    outline: none;
+
 }
 
 #page-content-toggle:hover {
@@ -85,6 +88,7 @@ html, body {
     -o-transition:  all 0.5s ease ;
     transition:  all 0.5s ease ;
     /*right : 10px;*/
+    outline: none;
 }
 
 #suburb-hover {
@@ -108,28 +112,10 @@ html, body {
     visibility: hidden;
 }
 
-/*.trapezoid {*/
-    /*position: relative;*/
-    /*height: 100px;*/
-    /*width: 0;*/
-    /*border-top: 30px solid transparent;*/
-    /*border-left: 50px solid black;*/
-    /*border-bottom: 30px solid transparent;*/
-/*}*/
-
-.white{
-    color: black;
-}
 
 .size {
     font-size: 1.5em;
 }
-
-
-/*.col-md-6 {*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-/*}*/
 
 .col-style {
     visibility: hidden;
@@ -152,17 +138,6 @@ html, body {
 
 }
 
-/*.divider2{*/
-    /*position:absolute;*/
-    /*left: 0;*/
-    /*top: 0;*/
-    /*bottom:0;*/
-    /*border-left:5px solid lightgrey;*/
-    /*visibility: hidden;*/
-    /*transition-delay: 0.5s;*/
-
-/*}*/
-
 .nav-pills {
     text-align: center;
     visibility: hidden;
@@ -178,18 +153,16 @@ html, body {
 }
 
 .container-fluid {
-    margin: 20px;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
     visibility: hidden;
 }
 
 .container-fluid .sidebar-open {
-    /*background: white;*/
-    /*margin-left: 10px;*/
-    margin-top: 10px;
-    margin-bottom: 10px;
-    /*margin-right: 10px;*/
+    /*margin-top: 10px;*/
 
-    /*width: calc(100% - 20px);*/
+    /*margin-bottom: 10px;*/
     width: auto;
     height: calc(100% - 20px);
 }
@@ -204,13 +177,12 @@ html, body {
     visibility: hidden;
 }
 
-
 /* IF the sidebar is showing THEN
  * expanded the page-content-wrapper IF sidebarExpanded is toggled on
  */
 #wrapper.showSidebar.sidebarExpanded #sidebar-wrapper {
     z-index: 1000;
-    width: calc(100% - 32px);
+    width: calc(100% - 24px);
     /*right: 24px;*/
 }
 
@@ -280,28 +252,29 @@ html, body {
 
 #wrapper.showSidebar #page-content-toggle {
     /*border: 1px solid black;*/
-    /*background: #4099FF;*/
     background: lightblue;
+    /*background: lightblue;*/
     left: 20%;
     z-index: 1000;
 }
 
-#wrapper.showSidebar #close-sidebar {
-    z-index: 1000;
-    left: calc(20%- 30px);
+#wrapper.showSidebar #page-content-toggle:hover {
+    background: lightskyblue;
+    -webkit-transition: color 0.2s ease ;
+    -moz-transition:  color 0.5s ease ;
+    -ms-transition:  color 0.5s ease ;
+    -o-transition:  color 0.5s ease ;
+    transition:  color 0.5s ease ;
 }
 
-/*#wrapper.showSidebar .checkbox {*/
-    /*visibility: visible;*/
-    /*transition-delay: 0.25s;*/
+#wrapper.showSidebar #page-content-toggle:hover .colour {
+    color: white;
+}
 
-/*}*/
-
-/*#wrapper.showSidebar .container-fluid {*/
-    /*visibility: visible;*/
-    /*transition-delay: 0.25s;*/
-
-/*}*/
+#wrapper.showSidebar #close-sidebar {
+    z-index: 1000;
+    left: calc(20%- 45px);
+}
 
 /* IF the sidebar is showing THEN
  * Set the map width to be 80%
@@ -309,15 +282,6 @@ html, body {
 #wrapper.showSidebar #map {
     width: 80%;
 }
-
-/* IF the cmpChecked is toggled on THEN
- * Open sidebar-wrapper2 AND
- * Set the width to 20% with 20px padding
- */
-/*#wrapper.cmpChecked #sidebar-wrapper {*/
-    /*/!*width: 40%;*!/*/
-
-/*}*/
 
 #wrapper.cmpSuburbClicked #page-content-toggle {
     left: 40%;
@@ -332,33 +296,19 @@ html, body {
 }
 
 #wrapper.cmpSuburbClicked #close-sidebar {
-    left: calc(40% - 30px);
+    left: calc(40% - 45px);
 
     /*right: auto;*/
 }
 
-/*#wrapper#sidebar-wrapper.cmpChecked .container-fluid {*/
-    /*margin-right: 5px;*/
-    /*width: auto;*/
-/*}*/
-
-/*#wrapper#cmp-sidebar-wrapper.cmpChecked .container-fluid {*/
-    /*margin-left: 5px;*/
-    /*width: auto;*/
-/*}*/
 #wrapper.cmpChecked .col-style {
     visibility: visible;
 }
 
 #wrapper.cmpSuburbClicked .divider {
-    transition-delay: 0.1s;
+    /*transition-delay: 0.1s;*/
     visibility: visible;
 
-}
-
-#wrapper.cmpChecked .divider2 {
-    transition-delay: 0.1s;
-    visibility: visible;
 }
 
 #wrapper.cmpChecked .close-sidebar{
@@ -369,8 +319,6 @@ html, body {
 #wrapper.cmpSuburbClicked #map {
     width: 60%;
 }
-
-
 
 /* IF the sidebar is showing THEN
  * the button will become visible
@@ -385,17 +333,6 @@ html, body {
 }
 
 
-/*#wrapper.closed #sidebar-wrapper{*/
-    /*lef*/
-/*}*/
-
-/*#wrapper.closed #sidebar-wrapper {*/
-    /*width: 0%;*/
-/*}*/
-
-/*#wrapper.closed #map {*/
-    /*width: 100%;*/
-/*}*/
 
 #heatmap-housing {
     cursor:pointer;
@@ -495,95 +432,7 @@ html, body {
 }
 
 #type-selector label {
-  font-family: Roboto;
-  font-size: 13px;
-  font-weight: 300;
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 300;
 }
-/*.sidebar-nav {*/
-/*position: absolute;*/
-/*top: 0;*/
-/*width: 100%;*/
-/*list-style: none;*/
-/*margin: 0;*/
-/*padding: 0;*/
-/*}*/
-
-
-/*ul {*/
-    /*/!*padding: 0px;*!/*/
-    /*list-style-type:none;*/
-/*}*/
-/*ul li {*/
-    /*/!*list-style: none;*!/*/
-    /*/!*padding: 20px;*!/*/
-    /*margin: 20px;*/
-    /*text-indent: 20px;*/
-    /*line-height: 40px;*/
-/*}*/
-
-/*li a {*/
-    /*display: block;*/
-    /*text-decoration: none;*/
-/*}*/
-
-
-
-
-
-
-
-
-
-/*.sidebar-nav {*/
-/*position: absolute;*/
-/*top: 0;*/
-/*width: 100%;*/
-/*list-style: none;*/
-/*margin: 0;*/
-/*padding: 0;*/
-/*}*/
-
-
-/*ul {*/
-    /*/!*padding: 0px;*!/*/
-    /*list-style-type:none;*/
-/*}*/
-/*ul li {*/
-    /*/!*list-style: none;*!/*/
-    /*/!*padding: 20px;*!/*/
-    /*margin: 20px;*/
-    /*text-indent: 20px;*/
-    /*line-height: 40px;*/
-/*}*/
-
-/*li a {*/
-    /*display: block;*/
-    /*text-decoration: none;*/
-/*}*/
-
-/*.sidebar-nav li a:hover {*/
-    /*background: #16A085;*/
-/*}*/
-
-/*@media (max-width:767px) {*/
-
-    /*#wrapper {*/
-        /*padding-left: 0;*/
-    /*}*/
-
-    /*#sidebar-wrapper {*/
-        /*left: 0;*/
-    /*}*/
-
-    /*#wrapper.active {*/
-        /*position: relative;*/
-        /*left: 250px;*/
-    /*}*/
-
-    /*#wrapper.active #sidebar-wrapper {*/
-        /*left: 250px;*/
-        /*width: 250px;*/
-        /*transition: all 0.4s ease 0s;*/
-    /*}*/
-
-/*}*/

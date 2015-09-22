@@ -3,12 +3,10 @@ $(document).ready(function() {
     var contentString = "";
     var cmpContentString = "";
 
-    if ( ($(window).height() + 100) < $(document).height() ) {
-        $('#top-link-block').removeClass('hidden').affix({
-            // how far to scroll down before link "slides" into view
-            offset: {top:100}
-        });
-    }
+    $('[data-toggle="tooltip"]').tooltip();
+
+    $('[data-toggle="map-tooltip"]').tooltip();
+
 
     // when user clicks on the toggle heatmap button
 	$("#heatmap-housing").addClass('selected');
@@ -41,7 +39,7 @@ $(document).ready(function() {
         // e.g. href="#" is not activated on click
         event.preventDefault();
         // Switches the glyphicon from > to <
-        $(this).find('i').toggleClass('glyphicon-chevron-right').toggleClass('glyphicon-chevron-left');
+        $(this).find('i').toggleClass('fa-chevron-right').toggleClass('fa-chevron-left');
         $("#wrapper").toggleClass("sidebarExpanded");
 
         var pricesInfo = document.getElementById('prices-info');
@@ -125,13 +123,26 @@ $(document).ready(function() {
 
     $("#close-sidebar").click(function(event){
         event.preventDefault();
-        if ($("#wrapper").hasClass("cmpSuburbClicked")) {
+        if ($("#wrapper").hasClass('cmpSuburbClicked')) {
+
             $("#wrapper").toggleClass("cmpSuburbClicked");
+
+            document.getElementById('cmp-suburb').innerHTML = "";
+            document.getElementById('cmp-summary').innerHTML = "";
+            if (cmpLayer.feature.getProperty('name') != lastClickedLayer.feature.getProperty('name')) {
+                lastClickedLayer.feature.setProperty('isColorful', false);
+                lastClickedLayer = cmpLayer;
+            }
+
         } else {
+            if ($("#wrapper").hasClass("cmpChecked")) {
+                $("#wrapper").toggleClass("cmpChecked");
+                $('#cmp-checkbox').attr('checked', false);
+            }
             $("#wrapper").toggleClass("showSidebar");
+            lastClickedLayer.feature.setProperty('isColorful', false);
         }
 
-        lastClickedLayer.feature.setProperty('isColorful', false);
         //$("#wrapper").removeClass('#page-content-toggle');
 
 
