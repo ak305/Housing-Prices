@@ -280,7 +280,7 @@ html, body {
  * Set the map width to be 80%
  */
 #wrapper.showSidebar #map {
-    width: 80%;
+    width: calc(80% - 24px);
 }
 
 #wrapper.cmpSuburbClicked #page-content-toggle {
@@ -317,7 +317,7 @@ html, body {
 }
 
 #wrapper.cmpSuburbClicked #map {
-    width: 60%;
+    width: calc(60% - 24px);
 }
 
 /* IF the sidebar is showing THEN
