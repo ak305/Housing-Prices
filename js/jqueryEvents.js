@@ -23,13 +23,13 @@ $(document).ready(function() {
         heatmapHospitals();
     });
 
-    // When the user clicks on the page-content-open button it will toggle the sidebarExpanded class
-    $("#page-content-open").click(function(event){
+    // When the user clicks on the page-content-wrapper button it will toggle the sidebarExpanded class
+    $("#page-content-toggle").click(function(event){
         // Prevents the default action linked to this event
         // e.g. href="#" is not activated on click
         event.preventDefault();
         // Switches the glyphicon from > to <
-        $(this).find('span').toggleClass('glyphicon-menu-right').toggleClass('glyphicon-menu-left');
+        $(this).find('i').toggleClass('glyphicon-chevron-right').toggleClass('glyphicon-chevron-left');
         $("#wrapper").toggleClass("sidebarExpanded");
 
         var pricesInfo = document.getElementById('prices-info');
@@ -113,9 +113,14 @@ $(document).ready(function() {
 
     $("#close-sidebar").click(function(event){
         event.preventDefault();
-        $("#wrapper").toggleClass("showSidebar");
+        if ($("#wrapper").hasClass("cmpSuburbClicked")) {
+            $("#wrapper").toggleClass("cmpSuburbClicked");
+        } else {
+            $("#wrapper").toggleClass("showSidebar");
+        }
+
         lastClickedLayer.feature.setProperty('isColorful', false);
-        //$("#wrapper").removeClass('#page-content-open');
+        //$("#wrapper").removeClass('#page-content-toggle');
 
 
     });

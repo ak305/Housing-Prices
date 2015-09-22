@@ -41,38 +41,50 @@ html, body {
     overflow-y: auto;
     z-index: 100;
     -webkit-transition: all 0.5s ease;
+    -ms-transition:  all 0.5s ease ;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 
 }
 
-#page-content-open {
+#page-content-toggle {
     position: absolute;
     z-index: -1;
     left: 0;
-    top: 50%;
-
+    /*top: 50%;*/
+    height: 100%;
+    /*border: 1px solid black;*/
+    /*background: #4099FF;*/
+    border: transparent;
+    background: transparent;
     /*transition-delay: 0.5s;*/
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
+    -ms-transition:  all 0.5s ease ;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 
 }
 
-/*#vertical-stripe {*/
-    /*position: fixed;*/
-    /*height: 100%;*/
-    /*border: 1px solid black;*/
-    /*background: lightgrey;*/
-/*}*/
+#page-content-toggle:hover {
+    background: #4099FF;
+}
 
 #close-sidebar {
     position: absolute;
     z-index: 1000;
     top : 20px;
-    right : 10px;
+    background: transparent;
+    border: transparent;
+    left: 0%;
+
+    -webkit-transition: all 0.5s ease ;
+    -moz-transition:  all 0.5s ease ;
+    -ms-transition:  all 0.5s ease ;
+    -o-transition:  all 0.5s ease ;
+    transition:  all 0.5s ease ;
+    /*right : 10px;*/
 }
 
 #suburb-hover {
@@ -106,11 +118,11 @@ html, body {
 /*}*/
 
 .white{
-    color: navy;
+    color: black;
 }
 
 .size {
-    font-size: 2.0em;
+    font-size: 1.5em;
 }
 
 
@@ -166,7 +178,7 @@ html, body {
 }
 
 .container-fluid {
-
+    margin: 20px;
     visibility: hidden;
 }
 
@@ -198,14 +210,15 @@ html, body {
  */
 #wrapper.showSidebar.sidebarExpanded #sidebar-wrapper {
     z-index: 1000;
-    width: 100%;
+    width: calc(100% - 32px);
+    /*right: 24px;*/
 }
 
 /* IF the sidebar is showing THEN
- * move the page-content-open button to follow as the page-content-wrapper expands
+ * move the page-content-toggle button to follow as the page-content-wrapper expands
  */
-#wrapper.showSidebar.sidebarExpanded #page-content-open {
-    right: 10px;
+#wrapper.showSidebar.sidebarExpanded #page-content-toggle {
+    right: 0;
     left: auto;
 }
 
@@ -230,7 +243,10 @@ html, body {
 }
 
 #wrapper.showSidebar.sidebarExpanded #close-sidebar {
-    visibility: hidden;
+    /*left: auto;*/
+    /*right: 12px;*/
+    /*visibility: hidden;*/
+    display:none;
 }
 
 #wrapper.showSidebar.sidebarExpanded .row {
@@ -260,12 +276,18 @@ html, body {
     /*width: 20%;*/
     z-index: 0;
     left: 20%;
-
 }
 
-#wrapper.showSidebar #page-content-open {
+#wrapper.showSidebar #page-content-toggle {
+    /*border: 1px solid black;*/
+    /*background: #4099FF;*/
+    background: lightblue;
     left: 20%;
     z-index: 1000;
+}
+
+#wrapper.showSidebar #close-sidebar {
+    left: calc(20%- 30px);
 }
 
 /*#wrapper.showSidebar .checkbox {*/
@@ -296,7 +318,7 @@ html, body {
 
 /*}*/
 
-#wrapper.cmpSuburbClicked #page-content-open {
+#wrapper.cmpSuburbClicked #page-content-toggle {
     left: 40%;
     right: auto;
 
@@ -306,6 +328,12 @@ html, body {
     left: 20%;
     right: auto;
 
+}
+
+#wrapper.cmpSuburbClicked #close-sidebar {
+    left: calc(40% - 30px);
+
+    /*right: auto;*/
 }
 
 /*#wrapper#sidebar-wrapper.cmpChecked .container-fluid {*/
@@ -420,7 +448,7 @@ html, body {
   font-family: Roboto;
   font-size: 15px;
   font-weight: 300;
-  margin-left: 12px;
+  margin-right: 12px;
   padding: 0 11px 0 13px;
   text-overflow: ellipsis;
   width: 300px;

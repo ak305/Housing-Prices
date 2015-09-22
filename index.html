@@ -24,7 +24,6 @@
     <div id="wrapper"><!-- start wrapper -->
 
         <div id="sidebar-wrapper"> <!-- start sidebar-wrapper -->
-            <a href="#" id="close-sidebar"><span class="glyphicon glyphicon-remove white size"></span></a>
             <div class="container-fluid sidebar-open"> <!-- start of container-fluid-->
                 <div class="row"> <!-- start of row -->
                     <div id="col1" class="col-md-12">
@@ -111,10 +110,18 @@
             </div>
         </div>
 
-        <div id="vertical-stripe">
-            <a href="#" id="page-content-open"><span class="glyphicon glyphicon-menu-right button white size"></span></a>
+
+        <div>
+            <button id="close-sidebar">
+                <i class="glyphicon glyphicon-remove button size"></i>
+            </button>
+            <button id="page-content-toggle" >
+                <i class="glyphicon glyphicon-chevron-right button size"></i>
+            </button>
         </div>
-		<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+
+        <!--<a href="#" id="page-content-toggle"><span class="glyphicon glyphicon-menu-right button white size "></span></a>-->
+        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
         <div id="map"></div>
 
 
