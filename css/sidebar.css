@@ -398,6 +398,7 @@ html, body {
 /*}*/
 
 #heatmap-housing {
+    cursor:pointer;
     position: fixed;
     z-index: 100;
     right: 15%;
@@ -409,7 +410,15 @@ html, body {
     border: 1px solid red;
 }
 
+#heatmap-housing:hover {
+    background: #9e0b99;
+}
+#heatmap-housing.selected {
+    background: #9e0b99;
+}
+
 #heatmap-schools {
+    cursor:pointer;
     position: fixed;
     z-index: 100;
     right: 10%;
@@ -421,17 +430,33 @@ html, body {
     border: 1px solid red;
 }
 
-#heatmap-hospitals {
-    position: fixed;
-    z-index: 100;
-    right: 5%;
-    width: 5%;
-    bottom: 13%;
-    height: 5%;
-    background: green;
-    text-align: center;
-    border: 1px solid red;
+#heatmap-schools:hover {
+    background: #1c81b0;
 }
+#heatmap-schools.selected {
+    background: #1c81b0;
+}
+ #heatmap-hospitals {
+    cursor:pointer;
+	position: fixed;
+	z-index: 100;
+	right: 5%;
+	width: 5%;
+	bottom: 13%;
+	height: 5%;
+	background: green;
+	background: lightgreen;
+	text-align: center;
+	border: 1px solid red;
+ }
+#heatmap-hospitals:hover {
+    background: #267310;
+}
+#heatmap-hospitals.selected {
+    background: #267310;
+}
+
+
 
 .controls {
   margin-top: 10px;

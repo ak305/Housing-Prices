@@ -11,17 +11,29 @@ $(document).ready(function() {
     }
 
     // when user clicks on the toggle heatmap button
+	$("#heatmap-housing").addClass('selected');
     $("#heatmap-housing").click(function(event){
         heatmapHousing();
+		$(this).addClass('selected');
+		$("#heatmap-schools").removeClass('selected');
+		$("#heatmap-hospitals").removeClass('selected');
     });
 
     $("#heatmap-schools").click(function(event){
         heatmapSchools();
+		// $(this).css({background:"blue"});
+		$(this).addClass('selected');
+		$("#heatmap-housing").removeClass('selected');
+		$("#heatmap-hospitals").removeClass('selected');
     });
 
     $("#heatmap-hospitals").click(function(event){
         heatmapHospitals();
+		$(this).addClass('selected');
+		$("#heatmap-schools").removeClass('selected');
+		$("#heatmap-housing").removeClass('selected');
     });
+   
 
     // When the user clicks on the page-content-wrapper button it will toggle the sidebarExpanded class
     $("#page-content-toggle").click(function(event){
