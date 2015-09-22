@@ -335,62 +335,67 @@ html, body {
 
 
 #heatmap-housing {
-    cursor:pointer;
     position: fixed;
     z-index: 100;
     right: 15%;
     width: 5%;
     bottom: 13%;
     height: 5%;
-    background: mediumpurple;
-    text-align: center;
-    border: 1px solid red;
-}
-
-#heatmap-housing:hover {
-    background: #9e0b99;
-}
-#heatmap-housing.selected {
-    background: #9e0b99;
 }
 
 #heatmap-schools {
-    cursor:pointer;
     position: fixed;
     z-index: 100;
     right: 10%;
     width: 5%;
     bottom: 13%;
     height: 5%;
-    background: lightblue;
-    text-align: center;
-    border: 1px solid red;
 }
-
-#heatmap-schools:hover {
-    background: #1c81b0;
-}
-#heatmap-schools.selected {
-    background: #1c81b0;
-}
- #heatmap-hospitals {
-    cursor:pointer;
+ #heatmap-transport {
 	position: fixed;
 	z-index: 100;
 	right: 5%;
 	width: 5%;
 	bottom: 13%;
 	height: 5%;
-	background: green;
-	background: lightgreen;
-	text-align: center;
-	border: 1px solid red;
  }
-#heatmap-hospitals:hover {
-    background: #267310;
+.heatmap-button {
+    cursor:pointer;
+    text-align: center;
+    -moz-box-shadow: 0px 1px 0px 0px #f0f7fa;
+    -webkit-box-shadow: 0px 1px 0px 0px #f0f7fa;
+    box-shadow: 0px 1px 0px 0px #f0f7fa;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #33bdef), color-stop(1, #019ad2));
+    background:-moz-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+    background:-webkit-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+    background:-o-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+    background:-ms-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+    background:linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#33bdef', endColorstr='#019ad2',GradientType=0);
+    background-color:#33bdef;
+    border:1px solid #057fd0;
 }
-#heatmap-hospitals.selected {
-    background: #267310;
+
+.heatmap-button:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #019ad2), color-stop(1, #33bdef));
+    background:-moz-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+    background:-webkit-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+    background:-o-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+    background:-ms-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+    background:linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#019ad2', endColorstr='#33bdef',GradientType=0);
+    background-color:#019ad2;
+}
+
+.heatmap-button.selected {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #019ad2), color-stop(1, #33bdef));
+    background:-moz-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+    background:-webkit-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+    background:-o-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+    background:-ms-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+    background:linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#019ad2', endColorstr='#33bdef',GradientType=0);
+    background-color:#019ad2;
 }
 
 

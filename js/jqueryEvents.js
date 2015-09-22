@@ -14,7 +14,7 @@ $(document).ready(function() {
         heatmapHousing();
 		$(this).addClass('selected');
 		$("#heatmap-schools").removeClass('selected');
-		$("#heatmap-hospitals").removeClass('selected');
+		$("#heatmap-transport").removeClass('selected');
     });
 
     $("#heatmap-schools").click(function(event){
@@ -22,10 +22,10 @@ $(document).ready(function() {
 		// $(this).css({background:"blue"});
 		$(this).addClass('selected');
 		$("#heatmap-housing").removeClass('selected');
-		$("#heatmap-hospitals").removeClass('selected');
+		$("#heatmap-transport").removeClass('selected');
     });
 
-    $("#heatmap-hospitals").click(function(event){
+    $("#heatmap-transport").click(function(event){
         heatmapHospitals();
 		$(this).addClass('selected');
 		$("#heatmap-schools").removeClass('selected');
