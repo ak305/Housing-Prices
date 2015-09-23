@@ -213,13 +213,16 @@ function initMap(){
     // Load GeoJSON.
     map.data.loadGeoJson('https://bitbucket.org/williamg2103/json-test/raw/07a9b086bece031e6471ed1924640ff0af7f51e1/suburb_multicolour_test.json');
     map.data.setStyle(function(feature) {
-		var color = 'black';
+        color = feature.getProperty('color1');
+        opacity = 0.25;
         if (!feature.getProperty('isColorful')) {
             color = feature.getProperty('color1');
+            opacity = 0.5;
         }
 		
         return /** @type {google.maps.Data.StyleOptions} */({
             fillColor: color,
+            fillOpacity: opacity,
             strokeColor: color,
             strokeWeight: 1
         });
@@ -271,6 +274,7 @@ function initMap(){
            summary = document.getElementById('cmp-summary');
 
            if (cmpLayer.feature.getProperty('name') == event.feature.getProperty('name')) {
+               $("#wrapper").removeClass("cmpSuburbClicked");
                suburbName = "";
                contentString = "";
            }
@@ -309,11 +313,11 @@ function initMap(){
 	});
     map.data.addListener('mouseover', function(event) {
         // newColor = feature.getProperty('color');
-        newColor = 'red';
+        //newColor = 'red';
         // newColor = (parseInt(newColor, 16) + 0xFFFF00).toString(16);
         // newColor = newColor + '#111111';
         map.data.revertStyle();
-        map.data.overrideStyle(event.feature, {fillColor: newColor});
+        map.data.overrideStyle(event.feature, {fillOpacity: 0.25});
         var suburbName = event.feature.getProperty('name');
         var suburbDisplay = document.getElementById('suburb-hover-id');
         suburbName = capitaliseFirstLetter(suburbName);

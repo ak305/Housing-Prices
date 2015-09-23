@@ -131,8 +131,8 @@ $(document).ready(function() {
             document.getElementById('cmp-summary').innerHTML = "";
             if (cmpLayer.feature.getProperty('name') != lastClickedLayer.feature.getProperty('name')) {
                 lastClickedLayer.feature.setProperty('isColorful', false);
-                lastClickedLayer = cmpLayer;
             }
+            lastClickedLayer = cmpLayer;
 
         } else {
             if ($("#wrapper").hasClass("cmpChecked")) {
@@ -149,7 +149,7 @@ $(document).ready(function() {
     });
 
     $('.carousel').carousel({
-        interval: 3000
+        interval: 6000
     })
 
     $('ul.nav.nav-pills li a').click(function() {

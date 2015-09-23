@@ -22,10 +22,10 @@ html, body {
 
 #wrapper {
     /*padding-left: 20%;*/
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    /*-webkit-transition: all 0.5s ease;*/
+    /*-moz-transition: all 0.5s ease;*/
+    /*-o-transition: all 0.5s ease;*/
+    /*transition: all 0.5s ease;*/
 }
 
 
@@ -60,11 +60,11 @@ html, body {
     border: transparent;
     background: transparent;
     /*transition-delay: 0.5s;*/
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -ms-transition:  all 0.5s ease ;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: left 0.5s ease;
+    -moz-transition: left 0.5s ease;
+    -ms-transition:  left 0.5s ease ;
+    -o-transition: left 0.5s ease;
+    transition: left 0.5s ease;
 
     outline: none;
 
@@ -115,6 +115,10 @@ html, body {
 
 .size {
     font-size: 1.5em;
+}
+
+.size-close {
+    font-size: 2.0em;
 }
 
 .col-style {
@@ -195,8 +199,8 @@ html, body {
  * move the page-content-toggle button to follow as the page-content-wrapper expands
  */
 #wrapper.showSidebar.sidebarExpanded #page-content-toggle {
-    right: 0;
-    left: auto;
+    /*right: 0;*/
+    left: calc(100% - 24px);
 }
 
 #wrapper.showSidebar.sidebarExpanded .checkbox {
@@ -257,20 +261,21 @@ html, body {
 
 #wrapper.showSidebar #page-content-toggle {
     /*border: 1px solid black;*/
-    background: lightblue;
+    background: lightskyblue;
     /*background: lightblue;*/
     left: 20%;
     z-index: 1000;
 }
 
 #wrapper.showSidebar #page-content-toggle:hover {
-    background: lightskyblue;
-    -webkit-transition: color 0.2s ease ;
-    -moz-transition:  color 0.5s ease ;
-    -ms-transition:  color 0.5s ease ;
-    -o-transition:  color 0.5s ease ;
-    transition:  color 0.5s ease ;
+    background: paleturquoise;
+    /*-webkit-transition: color 0.2s ease ;*/
+    /*-moz-transition:  color 0.2s ease ;*/
+    /*-ms-transition:  color 0.2s ease ;*/
+    /*-o-transition:  color 0.2s ease ;*/
+    /*transition:  color 0.2s ease ;*/
 }
+
 
 #wrapper.showSidebar #page-content-toggle:hover .colour {
     color: white;
@@ -281,6 +286,9 @@ html, body {
     left: calc(20%- 45px);
 }
 
+#wrapper.showSidebar #close-sidebar:hover .colour{
+    color: red;
+}
 /* IF the sidebar is showing THEN
  * Set the map width to be 80%
  */
@@ -328,6 +336,21 @@ html, body {
 
 #wrapper.cmpSuburbClicked #map {
     width: calc(60% - 24px);
+}
+
+#wrapper.cmpSuburbClicked.sidebarExpanded .divider {
+    visibility: hidden;
+}
+
+#wrapper.cmpSuburbClicked.sidebarExpanded #sidebar-wrapper {
+    width: calc(50% - 12px);
+}
+
+#wrapper.cmpSuburbClicked.sidebarExpanded #cmp-sidebar-wrapper {
+    z-index: 1000;
+    left: calc(50% - 12px);
+    width: calc(50% - 12px);
+
 }
 
 /* IF the sidebar is showing THEN
@@ -428,7 +451,7 @@ html, body {
   font-family: Roboto;
   font-size: 15px;
   font-weight: 300;
-  margin-right: 12px;
+  margin-right: 20px;
   padding: 0 11px 0 13px;
   text-overflow: ellipsis;
   width: 300px;
