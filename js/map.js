@@ -211,19 +211,20 @@ function initMap(){
     map.setMapTypeId(customMapTypeId);
 
     // Load GeoJSON.
-    map.data.loadGeoJson('https://bitbucket.org/williamg2103/json-test/raw/07a9b086bece031e6471ed1924640ff0af7f51e1/suburb_multicolour_test.json');
+    // map.data.loadGeoJson('https://bitbucket.org/williamg2103/json-test/raw/07a9b086bece031e6471ed1924640ff0af7f51e1/suburb_multicolour_test.json');
+    map.data.loadGeoJson('https://bitbucket.org/williamg2103/json-test/raw/c0b23be70c4d04c25a4448ce9faef4fba5de5d9f/test_heatmap.json');
     map.data.setStyle(function(feature) {
-        color = feature.getProperty('color1');
+        color = feature.getProperty('housingColor');
         opacity = 0.25;
         if (!feature.getProperty('isColorful')) {
-            color = feature.getProperty('color1');
-            opacity = 0.5;
+            color = feature.getProperty('housingColor');
+            opacity = 0.9;
         }
 		
         return /** @type {google.maps.Data.StyleOptions} */({
             fillColor: color,
             fillOpacity: opacity,
-            strokeColor: color,
+            strokeColor: "black",
             strokeWeight: 1
         });
     });
@@ -339,33 +340,42 @@ var map;
 var setHeatmap1Fn = function(feature){
 	var color = 'gray';
     if (!feature.getProperty('isColorful')) {
-        color = feature.getProperty('color1');
+        color = feature.getProperty('housingColor');
+		opacity = 0.9;
     }
 	return{
         fillColor: color,
-        strokeColor: feature.getProperty('color1'),
+		fillOpacity: opacity,
+        // strokeColor: feature.getProperty('housingColor'),
+        strokeColor: "black",
         strokeWeight: 1
 	};
 };
 var setHeatmap2Fn = function(feature){
 	var color = 'gray';
     if (!feature.getProperty('isColorful')) {
-        color = feature.getProperty('color2');
+        color = feature.getProperty('schoolColor');
+		opacity = 0.9;
     }
 	return{
         fillColor: color,
-        strokeColor: feature.getProperty('color2'),
+		fillOpacity: opacity,
+        // strokeColor: feature.getProperty('schoolColor'),
+		strokeColor: "black",
         strokeWeight: 1
 	};
 };
 var setHeatmap3Fn = function(feature){
 	var color = 'gray';
     if (!feature.getProperty('isColorful')) {
-        color = feature.getProperty('color3');
+        color = feature.getProperty('transportColor');
+		opacity = 0.9;
     }
 	return{
         fillColor: color,
-        strokeColor: feature.getProperty('color3'),
+		fillOpacity: opacity,
+        // strokeColor: feature.getProperty('transportColor'),
+		strokeColor: "black",
         strokeWeight: 1
 	};
 };
