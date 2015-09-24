@@ -108,7 +108,7 @@ html, body {
     /*border: 1px solid red;*/
 }
 
-#carousel-suburb {
+#carousel-suburb, #cmp-carousel-suburb {
     left: 10%;
     right: 10%;
     width: 80%;
