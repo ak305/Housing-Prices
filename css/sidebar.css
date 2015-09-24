@@ -189,7 +189,9 @@ html, body {
 }
 
 .container-fluid {
-
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
     visibility: hidden;
 }
 
@@ -207,7 +209,7 @@ html, body {
     height: 24px;
 }
 
-.container-fluid .sidebar-open {
+.cont.sidebar-open {
     /*margin-top: 10px;*/
     margin-top: 20px;
     margin-left: 10px;
@@ -218,9 +220,7 @@ html, body {
 }
 
 .container-fluid .sidebar-expanded {
-    margin-top: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
+
     /*display:none;*/
 }
 
@@ -300,7 +300,7 @@ html, body {
 #wrapper.showSidebar #cmp-sidebar-wrapper {
     /*width: 20%;*/
     z-index: 0;
-    left: 0%;
+    left: 20%;
 }
 
 #wrapper.showSidebar #page-content-toggle {

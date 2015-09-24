@@ -1,5 +1,14 @@
 $(document).ready(function() {
 
+    $.getJSON('https://bitbucket.org/ak305/bootstraptest/raw/83d17fe4add3c15a6ec4d494c97bc6b2b27084f7/suburbprices.json', function(data) {
+        suburbPrices = data;
+    });
+
+
+    $.getJSON('https://bitbucket.org/ak305/bootstraptest/raw/c175a2734c9eb472de0f51139202f6cb994d54f4/traveltimes.json', function(data) {
+        travelTimes = data;
+    });
+
     var contentString = "";
     var cmpContentString = "";
 

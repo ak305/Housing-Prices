@@ -1,9 +1,12 @@
 function initAutocomplete() {
     map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 10,
+        center: {lat: -33.835716, lng: 151.21703},
+        //zoom: 12, //Test setting for map
+        //center: {lat: -33.916383, lng: 151.257885},
         //zoom: 10,
-        //center: {lat: -33.8060528, lng: 150.9423714},
-        zoom: 12, //Test setting for map
-        center: {lat: -33.916383, lng: 151.257885},
+        //center: {lat: -33.7969235, lng: 150.9224326},
+
         zoomControl: true,
         scaleControl: true,
         streetViewControl: false,
@@ -212,7 +215,10 @@ function initMap(){
 
     // Load GeoJSON.
     // map.data.loadGeoJson('https://bitbucket.org/williamg2103/json-test/raw/07a9b086bece031e6471ed1924640ff0af7f51e1/suburb_multicolour_test.json');
-    map.data.loadGeoJson('https://bitbucket.org/williamg2103/json-test/raw/c0b23be70c4d04c25a4448ce9faef4fba5de5d9f/test_heatmap.json');
+    map.data.loadGeoJson('https://bitbucket.org/williamg2103/json-test/raw/be3c2f799c30daeaf8bba1642e3316d07ae606d6/heatmap_suburb0.json');
+    map.data.loadGeoJson('https://bitbucket.org/williamg2103/json-test/raw/be3c2f799c30daeaf8bba1642e3316d07ae606d6/heatmap_suburb1.json');
+    map.data.loadGeoJson('https://bitbucket.org/williamg2103/json-test/raw/be3c2f799c30daeaf8bba1642e3316d07ae606d6/heatmap_suburb2.json');
+    map.data.loadGeoJson('https://bitbucket.org/williamg2103/json-test/raw/be3c2f799c30daeaf8bba1642e3316d07ae606d6/heatmap_suburb3.json');
     map.data.setStyle(function(feature) {
         color = feature.getProperty('housingColor');
         opacity = 0.25;
@@ -235,32 +241,24 @@ function initMap(){
     var isChecked;
     map.data.addListener('click', function(event) {
 
-        // Gets the id of the html element
-        var sidebar = document.getElementById('sidebar-wrapper');
 
         // Gets the name of the event layer clicked
         var suburbName = event.feature.getProperty('name');
-        if (suburbName == "randwick") {
-            contentString = '<hr>'+
-                'Median House Price: $1,500,00' +
-                '<hr>' +
-                'Average Income: $80,000' +
-                '<hr>' +
-                'Average Age: 31' +
-                '<hr>' +
-                '...';
-        } else {
-            contentString =  '<hr>'+
-                'Median House Price: _____' +
-                '<hr>' +
-                'Average Income: _____' +
-                '<hr>' +
-                'Average Age: ______' +
-                '<hr>' +
-                '...';
 
+		for (var i = 0; i < suburbPrices.length; i++) {
+            if (suburbPrices[i].suburb === suburbName) {
+                var priceIndex = i;
+                break;
+            }
         }
-		
+
+        contentString = '<hr>' + 'Median House Price: $' + (suburbPrices[priceIndex].price) +
+                        '<hr>' + 'Travel Time (Private): ' + travelTimes[priceIndex].private_travel_time +
+                        '<hr>' + 'Travel Time (Public): ' + travelTimes[priceIndex].public_travel_time;
+
+        if (suburbName.length <= 14) {
+            contentString = '<br>' + contentString;
+        }
         var suburb = document.getElementById('suburb');
         var summary = document.getElementById('summary');
 
@@ -285,7 +283,7 @@ function initMap(){
        }	
 
         // Calls the capitalise string function
-        var suburbName = capitaliseFirstLetter(suburbName);
+        suburbName = capitaliseFirstLetter(suburbName);
 
         // Applies the changes to the string to the html contained in suburb
         suburb.innerHTML = suburbName;
