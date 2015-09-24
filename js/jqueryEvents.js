@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $.getJSON('https://bitbucket.org/ak305/bootstraptest/raw/83d17fe4add3c15a6ec4d494c97bc6b2b27084f7/suburbprices.json', function(data) {
+    $.getJSON('https://bitbucket.org/ak305/bootstraptest/raw/6b94b8f732344ca25b6c8053f273884b2f407473/suburbprices.json', function(data) {
         suburbPrices = data;
     });
 
@@ -24,6 +24,16 @@ $(document).ready(function() {
 		$(this).addClass('selected');
 		$("#heatmap-schools").removeClass('selected');
 		$("#heatmap-transport").removeClass('selected');
+        document.getElementById('units').innerHTML = '<b>' + 'Legend ($)' + '</b>';
+        document.getElementById('heatmap-value1').innerHTML = '< 500K';
+        document.getElementById('heatmap-value2').innerHTML = '500K - 750K';
+        document.getElementById('heatmap-value3').innerHTML = '750K - 1M';
+        document.getElementById('heatmap-value4').innerHTML = '1M - 1.25M';
+        document.getElementById('heatmap-value5').innerHTML = '1.25M - 1.5M';
+        document.getElementById('heatmap-value6').innerHTML = '1.5M - 2M';
+        document.getElementById('heatmap-value7').innerHTML = '2M - 3M';
+        document.getElementById('heatmap-value8').innerHTML = '> 3M';
+
     });
 
     $("#heatmap-schools").click(function(event){
@@ -32,6 +42,16 @@ $(document).ready(function() {
 		$(this).addClass('selected');
 		$("#heatmap-housing").removeClass('selected');
 		$("#heatmap-transport").removeClass('selected');
+        document.getElementById('units').innerHTML = '<b>' + 'Legend (# of Schools)' + '</b>';
+        document.getElementById('heatmap-value1').innerHTML = '0';
+        document.getElementById('heatmap-value2').innerHTML = '1';
+        document.getElementById('heatmap-value3').innerHTML = '2';
+        document.getElementById('heatmap-value4').innerHTML = '3';
+        document.getElementById('heatmap-value5').innerHTML = '4';
+        document.getElementById('heatmap-value6').innerHTML = '5';
+        document.getElementById('heatmap-value7').innerHTML = '6';
+        document.getElementById('heatmap-value8').innerHTML = '> 6';
+
     });
 
     $("#heatmap-transport").click(function(event){
@@ -39,6 +59,16 @@ $(document).ready(function() {
 		$(this).addClass('selected');
 		$("#heatmap-schools").removeClass('selected');
 		$("#heatmap-housing").removeClass('selected');
+        document.getElementById('units').innerHTML = '<b>' + 'Legend (mins)' + '</b>';
+        document.getElementById('heatmap-value1').innerHTML = '0 - 30';
+        document.getElementById('heatmap-value2').innerHTML = '30 - 45';
+        document.getElementById('heatmap-value3').innerHTML = '45 - 60';
+        document.getElementById('heatmap-value4').innerHTML = '60 - 75';
+        document.getElementById('heatmap-value5').innerHTML = '75 - 90';
+        document.getElementById('heatmap-value6').innerHTML = '90 - 105';
+        document.getElementById('heatmap-value7').innerHTML = '105 - 120';
+        document.getElementById('heatmap-value8').innerHTML = '> 120';
+
     });
    
 

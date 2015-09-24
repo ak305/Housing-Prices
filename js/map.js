@@ -253,12 +253,10 @@ function initMap(){
         }
 
         contentString = '<hr>' + 'Median House Price: $' + (suburbPrices[priceIndex].price) +
-                        '<hr>' + 'Travel Time (Private): ' + travelTimes[priceIndex].private_travel_time +
-                        '<hr>' + 'Travel Time (Public): ' + travelTimes[priceIndex].public_travel_time;
+                        '<hr>' + 'Time to CBD (Private): ' + travelTimes[priceIndex].private_travel_time +
+                        '<hr>' + 'Time to CBD (Public): ' + travelTimes[priceIndex].public_travel_time;
 
-        if (suburbName.length <= 14) {
-            contentString = '<br>' + contentString;
-        }
+
         var suburb = document.getElementById('suburb');
         var summary = document.getElementById('summary');
 
@@ -336,7 +334,9 @@ function initMap(){
 var count = 1;
 var map;
 var setHeatmap1Fn = function(feature){
-	var color = 'gray';
+	var color = feature.getProperty('housingColor');
+    var opacity = 0.25;
+
     if (!feature.getProperty('isColorful')) {
         color = feature.getProperty('housingColor');
 		opacity = 0.9;
@@ -350,7 +350,8 @@ var setHeatmap1Fn = function(feature){
 	};
 };
 var setHeatmap2Fn = function(feature){
-	var color = 'gray';
+	var color = feature.getProperty('schoolColor');
+    var opacity = 0.25;
     if (!feature.getProperty('isColorful')) {
         color = feature.getProperty('schoolColor');
 		opacity = 0.9;
@@ -364,7 +365,9 @@ var setHeatmap2Fn = function(feature){
 	};
 };
 var setHeatmap3Fn = function(feature){
-	var color = 'gray';
+	var color = feature.getProperty('transportColor');
+    var opacity = 0.25;
+
     if (!feature.getProperty('isColorful')) {
         color = feature.getProperty('transportColor');
 		opacity = 0.9;
